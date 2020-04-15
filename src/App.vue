@@ -18,11 +18,10 @@
         <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
           <Submenu name="1">
             <template slot="title">
-              <Icon type="ios-navigate"></Icon>Item 1
+              <Icon type="ios-navigate"></Icon>语句
             </template>
-            <MenuItem name="1-1">Option 1</MenuItem>
-            <MenuItem name="1-2">Option 2</MenuItem>
-            <MenuItem name="1-3">Option 3</MenuItem>
+            <MenuItem name="1-1" to="/statement-1">重点语句类型</MenuItem>
+            <MenuItem name="1-2" to="/statement-2">其他类型语句</MenuItem>
           </Submenu>
           <Submenu name="2">
             <template slot="title">
@@ -40,14 +39,15 @@
           </Submenu>
         </Menu>
       </Sider>
-      <Layout class="layout-inside layout-inside-fix-with-sider" :style="{ 'padding-left': isCollapsed ? '80px' : ''}">
-        <Header class="layout-header-bar layout-header-bar-fix layout-header-bar-light" :style="{ 'left': isCollapsed ? '80px' : ''}">
-          <Icon
-            @click.native="collapsedSider"
-            :class="rotateIcon"
-            type="md-menu"
-            size="24"
-          ></Icon>
+      <Layout
+        class="layout-inside layout-inside-fix-with-sider"
+        :style="{ 'padding-left': isCollapsed ? '80px' : ''}"
+      >
+        <Header
+          class="layout-header-bar layout-header-bar-fix layout-header-bar-light"
+          :style="{ 'left': isCollapsed ? '80px' : ''}"
+        >
+          <Icon @click.native="collapsedSider" :class="rotateIcon" type="md-menu" size="24"></Icon>
         </Header>
         <Content class="layout-content layout-content-fix-with-header">
           <div class="layout-content-main">
@@ -57,7 +57,7 @@
           </div>
         </Content>
         <Footer class="layout-footer">
-         <div>foot</div>
+          <div>foot</div>
         </Footer>
       </Layout>
     </Layout>
@@ -95,7 +95,11 @@ export default {
   },
   watch: {},
   mounted() {},
-  created() {},
+  created() {
+    // var x = ['a', 'b', 'c', 'd']
+    // for (var i = 0; i < x.length; x[i++] = 0) ;
+    // console.log(i)
+  },
   methods: {
     collapsedSider() {
       this.$refs.siderHook.toggleCollapse()
