@@ -153,6 +153,21 @@
           </div>
         </div>
       </Card>
+      <Card dis-hover shadow style="width:620px">
+        <h3 slot="title">6.检测数组的方法</h3>
+        <p>当web浏览器中有多个窗口或窗体(frame)存在，每个窗口都有自己的javascript环境，都有自己的全局对象。这时使用instanceof操作符用于数组检测并不可靠，可以使用Array.isArray()函数。</p>
+        <div>
+          <div v-highlight>
+            <pre>
+              <code>
+                var arr = []
+                arr instanceof Array  => true
+                Array.isArray(arr)    => true
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
     </div>
   </div>
 </template>

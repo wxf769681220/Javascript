@@ -339,6 +339,97 @@
           </div>
         </div>
       </Card>
+      <Card dis-hover shadow style="width:540px">
+        <h3 slot="title">11.reduce()和reduceRight()</h3>
+        <div>
+          <p>reduce()方法：迭代数组中的所有项，返回一个最终值。函数返回任何值都会作为第一个参数自动传递给下一项。reduceRight()方法与reduce()方法用法相同，</p>
+          <ol>
+            <li>第一个参数表示：前一个值, 即数组第一项。</li>
+            <li>第二个参数表示：当前值, 即数组第二项。</li>
+            <li>第三个参数表示：当前循环次数。</li>
+            <li>第四个参数表示：数组对象本身。</li>
+          </ol>
+          <div v-highlight>
+            <pre>
+              <code>
+                var arr = [1, 2, 3, 4, 5]
+
+                arr.reduce(function(prev, cur, index, array){
+                  return prev + cur
+                }) => 1+2+3+4+5 = 15
+
+                //从右向左计算
+                arr.reduceRight(function(prev, cur, index, array){
+                  return prev + cur
+                }) => 5+4+3+2+1 = 15
+              </code>
+            </pre>
+          </div>
+          <p>第二个参数可选，即表示初始化数值。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var arr = [1, 2, 3, 4, 5]
+
+                //求和
+                arr.reduce(function(prev, cur, index, array){
+                  return prev + cur
+                }, 10) => 10+1+2+3+4+5 = 25
+
+                //求积
+                arr.reduce(function(prev, cur, index, array){
+                  return prev * cur
+                }, 1) => 1*1*2*3*4*5 = 120
+
+                //求最大值
+                arr.reduce(function(prev, cur, index, array){
+                  return (prev &gt; cur) ? prev : cur
+                }, 0) => 5
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:540px">
+        <h3 slot="title">12.继承Object</h3>
+        <div>
+          <ol>
+            <li>toString()方法：返回一个由每个数组项的字符串形式拼接起来的字符串，以逗号分隔。实际上会调用每个数组项的toString()方法。</li>
+            <li>toLocaleString()方法：通常toString()方法返回一样的结果。区别：它会首先会检查每个数组项上是否存在toLocaleString()方法。若存在，则调用toLocaleString()方法；若没有，则调用toString()方法。</li>
+            <li>valueOf()方法：返回数组对象本身。</li>
+          </ol>
+          <div v-highlight>
+            <pre>
+              <code>
+                var arr1 = ['x', 'y', 'z']
+
+                arr1.toString()        => 'x,y,z'
+                arr1.toLocaleString()  => 'x,y,z'
+                arr1.valueOf()         => ['x', 'y', 'z']
+
+                //数组项中存在toLocaleString()方法
+                var obj1 = {
+                  toString: function() {
+                    return 'red'
+                  }
+                }
+
+                var obj2 = {
+                  toString: function() {
+                    return 'green'
+                  },
+                  toLocaleString: function() {
+                    return 'blue'
+                  }
+                }
+
+                var arr2 = [obj1, obj2]
+                arr2.toLocaleString() => 'red,blue'
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
     </div>
   </div>
 </template>
