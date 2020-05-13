@@ -6,7 +6,17 @@
 
 <script>
 export default {
-  name: 'test'
+  name: 'test',
+  props: {},
+  data() {
+    return {}
+  },
+  computed: {},
+  watch: {},
+  mounted() {},
+  created() {},
+  methods: {},
+  components: {}
 }
 </script>
 
