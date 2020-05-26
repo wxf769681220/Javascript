@@ -3,6 +3,47 @@
     <div class="layout-content">
       <Card :dis-hover="true" shadow style="width:350px">
         <h3 slot="title">1.表达式语句</h3>
+        <div>
+          <p>原始表达式：表达式的最小单位，包括：常量或直接量、关键字或保留字和变量（注意：undefined是一个全局变量，它不是一个关键字）。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //常量或直接量
+                1.23 'hello' /pattern/
+
+                //关键字或保留字
+                true / false / null / this
+
+                //变量
+                i
+                sum
+                undefined
+              </code>
+            </pre>
+          </div>
+          <p>其他表达式（初始化表达式会各自计算一次）</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //对象创建表达式
+                new Object()
+
+                //对象初始化表达式
+                {x:1, y:2} [1,2]
+
+                //属性访问表达式
+                o.name
+                o['x']
+
+                //函数表达式
+                var fn = function() {}
+
+                //函数调用表达式
+                fn()
+              </code>
+            </pre>
+          </div>
+        </div>
       </Card>
       <Card dis-hover shadow style="width:350px">
         <h3 slot="title">2.复合语句</h3>
@@ -188,11 +229,12 @@
           <div v-highlight>
             <pre>
               <code>
-                var sum,i,j;
+                var sum = 0
+                var i,j
                 for (i = 0, j = 10; i &lt; 10; i++, j--) {
                   sum += i * j;
                 }
-                console.log(sum); //NaN 有问题！！！！
+                console.log(sum);
               </code>
             </pre>
           </div>
@@ -272,13 +314,13 @@ export default {
 
 <style scoped lang="stylus">
 .statement-1
-  position relative
+  position: relative
   .layout-content
-    display flex
-    flex-direction row
-    flex-wrap wrap
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
 .ivu-card
-  align-self flex-start !important
-  margin-top 20px
-  margin-right 20px
+  align-self: flex-start !important
+  margin-top: 20px
+  margin-right: 20px
 </style>

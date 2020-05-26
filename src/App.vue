@@ -24,6 +24,18 @@
         <Layout>
           <Sider hide-trigger :style="{background: '#fff'}">
             <Menu active-name="statement-1" theme="light" width="auto">
+              <Submenu name="dataType">
+                <template slot="title">
+                  <Icon type="ios-navigate"></Icon>数据类型
+                </template>
+                <MenuItem name="dataType-1" to="/dataType-1">数据类型转换</MenuItem>
+              </Submenu>
+              <Submenu name="operator">
+                <template slot="title">
+                  <Icon type="ios-navigate"></Icon>运算符
+                </template>
+                <MenuItem name="operator-1" to="/operator-1">运算符一览</MenuItem>
+              </Submenu>
               <Submenu name="statement">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>语句
@@ -38,13 +50,21 @@
                 </template>
                 <MenuItem name="array-1" to="/array-1">数组概述</MenuItem>
                 <MenuItem name="array-2" to="/array-2">数组方法</MenuItem>
+                <MenuItem name="array-3" to="/array-3">类数组对象</MenuItem>
               </Submenu>
-              <Submenu name="3">
+              <Submenu name="function">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>Item 3
+                  <Icon type="ios-analytics"></Icon>函数
                 </template>
-                <MenuItem name="3-1">Option 1</MenuItem>
-                <MenuItem name="3-2">Option 2</MenuItem>
+                <MenuItem name="function-1" to="/function-1">函数概述</MenuItem>
+                <MenuItem name="function-2" to="/function-2">函数参数</MenuItem>
+                <MenuItem name="function-3" to="/function-3">闭包</MenuItem>
+              </Submenu>
+              <Submenu name="supplement">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>番外篇
+                </template>
+                <MenuItem name="supplement-1" to="/supplement-1">知识点补充</MenuItem>
               </Submenu>
             </Menu>
           </Sider>
