@@ -1,8 +1,14 @@
 const DataType1 = () => import('views/dataType-1')
 const Operator1 = () => import('views/operator-1')
+const Operator2 = () => import('views/operator-2')
 
 const Statement1 = () => import('views/statement-1')
 const Statement2 = () => import('views/statement-2')
+const Statement3 = () => import('views/statement-3')
+
+const Object1 = () => import('views/object-1')
+const Object2 = () => import('views/object-2')
+
 const Array1 = () => import('views/array-1')
 const Array2 = () => import('views/array-2')
 const Array3 = () => import('views/array-3')
@@ -21,12 +27,28 @@ const routes = [
     component: Operator1
   },
   {
+    path: '/operator-2',
+    component: Operator2
+  },
+  {
     path: '/statement-1',
     component: Statement1
   },
   {
     path: '/statement-2',
     component: Statement2
+  },
+  {
+    path: '/statement-3',
+    component: Statement3
+  },
+  {
+    path: '/object-1',
+    component: Object1
+  },
+  {
+    path: '/object-2',
+    component: Object2
   },
   {
     path: '/array-1',

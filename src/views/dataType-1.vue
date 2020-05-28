@@ -158,7 +158,7 @@
 
                 //Object根据传入的参数类型决定
                 Object(false) => new Boolean(false)
-                Object('')    => new String(false)
+                Object('')    => new String('')
                 Object(1)     => new Number(1)
                 Object({})    => new Object()
               </code>

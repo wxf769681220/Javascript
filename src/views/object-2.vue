@@ -1,5 +1,5 @@
 <template>
-  <div class="operator-1">
+  <div class="object-2">
     <div class="layout-content">
       <Card dis-hover shadow style="width:auto">
         <h3 slot="title">1.运算符</h3>
@@ -12,7 +12,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'operator-1',
+  name: 'object-2',
   created() {},
   components: {
     Card
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.operator-1
+.object-2
   position: relative
   .layout-content
     display: flex

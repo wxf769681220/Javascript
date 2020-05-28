@@ -34,15 +34,23 @@
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>运算符
                 </template>
-                <MenuItem name="operator-1" to="/operator-1">运算符一览</MenuItem>
+                <MenuItem name="operator-1" to="/operator-1">常用运算符</MenuItem>
+                <MenuItem name="operator-2" to="/operator-2">优先级</MenuItem>
               </Submenu>
               <Submenu name="statement">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>语句
                 </template>
                 <MenuItem name="statement-1" to="/statement-1">常用语句</MenuItem>
-                <MenuItem name="statement-2" to="/statement-2">语句扩展</MenuItem>
+                <MenuItem name="statement-2" to="/statement-2">条件、循环语句</MenuItem>
                 <MenuItem name="statement-3" to="/statement-3">语句补充</MenuItem>
+              </Submenu>
+              <Submenu name="object">
+                <template slot="title">
+                  <Icon type="ios-keypad"></Icon>对象
+                </template>
+                <MenuItem name="object-1" to="/object-1">对象及属性</MenuItem>
+                <MenuItem name="object-2" to="/object-2">数组方法</MenuItem>
               </Submenu>
               <Submenu name="array">
                 <template slot="title">
