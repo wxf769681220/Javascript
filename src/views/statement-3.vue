@@ -99,7 +99,7 @@
           </div>
         </div>
       </Card>
-      <Card :dis-hover="true" shadow style="width:720px">
+      <Card :dis-hover="true" shadow style="width:750px">
         <h3 slot="title">5.try/catch/finally语句</h3>
         <div>
           <p>try/catch/finally语句是Javascript的异常处理机制。其中catch与finally都是可选的，但try从句需要至少二者之一组成完整的语句。</p>
@@ -155,6 +155,34 @@
           <li>若try中抛出了一个异常，且存在一条与之相关的catch从句处理这个异常，解析器会首先执行catch中的代码，然后在执行finally中的代码。</li>
           <li>若不存在处理异常的catch从句，解析器会首先执行finally中的代码，然后向上传播这个异常，直到找到能处理这个异常的catch从句。</li>
         </ul>
+        <div v-highlight>
+          <pre>
+              <code>
+                //多catch从句
+                //在catch从句的参数中加入关键字if以及一个条件判断表达式。
+                //当产生一个异常时，程序会尝试依次执行每一条catch从句，
+                //执行catch从句会先对其条件表达式求值，若求值结果为true，则执行catch从句中的逻辑，
+                //同时跳过其他的catch从句（即不再执行其他的catch从句）
+                try {
+                    // 这里可能会抛出多种类型的异常
+                    throw 1;
+                } catch (e
+                    if e instanceof ReferenceError) {
+                    // 这里处理引用错误
+                } catch (e
+                    if e === "quit") {
+                    // 这里处理字符串是“quit”的情况
+                } catch (e
+                    if typeof e === "string") {
+                    // 处理其他字符串的情况
+                } catch (e) {
+                    // 处理余下的异常情况
+                } finally {
+                    // finally从句正常执行
+                }
+              </code>
+            </pre>
+        </div>
       </Card>
       <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">6.debugger语句</h3>

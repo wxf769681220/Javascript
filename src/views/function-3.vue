@@ -52,11 +52,21 @@
                     return x
                   }
                   return foo()
-                  //return foo
                 }
 
                 fn() => 2
-                //fn()() => 2
+
+                /*******************************/
+                var x = 1
+                function fn() {
+                  var x = 2
+                  function foo() {
+                    return x
+                  }
+                  return foo
+                }
+
+                fn()() => 2
               </code>
             </pre>
         </div>
@@ -159,35 +169,111 @@
                   }
                   arr[0]() => 10
                   arr[9]() => 10
+
+                  /****************/
+                  var arr= []
+                  var i = 0
+                  for (; i &lt; 10; i++) {
+                    arr[i] = function() { //自执行函数
+                      return i
+                    }()
+                  }
+                  arr => [0,1,2,3,4,5,6,7,8,9]
               </code>
             </pre>
         </div>
       </Card>
       <Card :dis-hover="true" shadow style="width:700px">
-        <h3 slot="title">6.闭包访问外部函数中的this和arguments</h3>
+        <h3 slot="title">6.闭包中的this和arguments</h3>
         <div>
-          <p>嵌套函数中this关键字的作用域。</p>
+          <p>
+            每个函数在被调用时都会获得两个特殊的变量：this和arguments变量。内部函数在搜索这两个变量时，只会搜索其活动对象为止，因此永远不可能直接访问外部函数中的this和arguments。
+            因此闭包的执行环境具有全局性，通常闭包中的this指向window。
+          </p>
           <div v-highlight>
             <pre>
               <code>
-              var o = {
-                'name': function(a) {
-                  this === o => true
-                  var self = this    //保存到变量self
-                  var outerArguments = arguments
-
-                  //闭包
-                  function foo(b) {
-                    self === o => true  //变量self指向外部函数this
-                    this === o => false //this指向全局对象
-
-                    outerArguments[0] === 1 //true
-                    arguments[0] === 2      //true
+                var color = 'red'
+                var o = {
+                  'getColor': function() {
+                    var color = 'green';
+                    //闭包
+                    (function() {
+                      console.log(this.color) => 'red'
+                    }())
                   }
-                  foo(2)
                 }
-              }
-              o.name(1)
+              </code>
+            </pre>
+          </div>
+          <p>把外部函数中的this或arguments对象保存在一个闭包可以访问到的变量中，就可以让闭包访问该对象了。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var color = 'red'
+                var o = {
+                  'name': function(a) {
+                    this === o => true
+
+                    var self = this
+                    var outerArguments = arguments
+
+                    //闭包
+                    function foo(b) {
+                      self === o => true
+                      outerArguments[0] === 1  =>true
+
+                      this.color => 'red'
+                      arguments[0] => 2
+                    }
+                    foo(2)
+                  }
+                }
+                o.name(1)
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card :dis-hover="true" shadow style="width:700px">
+        <h3 slot="title">7.闭包导致的内存泄漏</h3>
+        <div>
+          <p>如果闭包的作用域中保存着一个HTML元素，那就意味着该元素将无法被销毁，占用内存就永远不会被收回。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                function fn() {
+                  var element = documents.getElementById('el')
+
+                  //创建事件处理程序的闭包，
+                  //闭包中保存一个对fn()的活动对象element变量的引用
+                  element.onclick = function() {
+                    alert(element.id)
+                  }
+                }
+              </code>
+            </pre>
+          </div>
+          <p>解决内存泄漏的方法。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                function fn() {
+                  var element = documents.getElementById('el')
+
+                  //创建一个需要引用的副本
+                  var id = element.id
+
+                  //闭包中不直接引用element
+                  //但其活动对象中仍然会保存一个引用
+                  //因此需要手动的取消引用
+                  element.onclick = function() {
+                    alert(id)
+                  }
+
+                  //取消引用
+                  element = null
+                }
               </code>
             </pre>
           </div>

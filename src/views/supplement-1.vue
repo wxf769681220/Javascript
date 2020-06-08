@@ -2,8 +2,8 @@
   <div class="supplement-1">
     <div class="layout-content">
       <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">1.语法结构-可选的分号</h3>
-         <div>
+        <h3 slot="title">语法结构-可选的分号</h3>
+        <div>
           <p>如果当前语句和随后的非空格字符不能当做一个整体来解析的话，javascript就在当前语句行结束处填补分号。</p>
           <div v-highlight>
             <pre>
@@ -65,38 +65,102 @@
           </div>
         </div>
       </Card>
-       <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">2.八进制与十六进制数</h3>
-      </Card>
-      <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">3.eval()方法</h3>
-      </Card>
-      <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">4.Function构造函数</h3>
-         <div>
-          <p>Function构造函数所创建的函数，函数体代码的编译总是在顶层函数执行。</p>
+      <Card :dis-hover="true" shadow style="width:650px">
+        <h3 slot="title">常量和局部变量</h3>
+        <div>
+          <p>const关键字用来定义常量。即不可重复赋值的变量，任何尝试修改这个值的操作，都会抛出一个异常。</p>
           <div v-highlight>
             <pre>
               <code>
-                var x = 1
+                const x = 10
+
+                x = 1 //抛出一个异常
+              </code>
+            </pre>
+          </div>
+          <p>let关键字的使用方式。若出现两个变量同名，则会抛出一个异常。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //同名变量
+                let x = 1
+                let x = 10 //这段代码会抛出一个异常
+
+                //函数内部
                 function fn() {
-                  var x = 2
-                  return new Function('return x')
+                  let x = 0, result = [] //x、result在函数内部都有定义
+
+                  for (let i = 0; i &lt; 10; i++) { //i仅在循环体中有定义
+                    let y = x * i //y仅在循环体中有定义
+                    x += y
+                    result.push(x)
+                  }
+
+                  return result
                 }
 
-                fn()() => 1
+                //for-in循环
+                var o = {x: 1, y:2}
+                for (let p in o) { //仅在循环体中有定义
+                  p => x y
+                }
+                p => error
               </code>
             </pre>
           </div>
         </div>
       </Card>
-          <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">5.函数式编程- 高价函数</h3>
-         <div>
-          <p>高价函数：操作函数的函数，它接收一个或多个函数作为参数，并返回一个新函数。</p>
+        <Card :dis-hover="true" shadow style="width:650px">
+        <h3 slot="title">解构赋值</h3>
+        <div>
+          <p>解构赋值要求左侧与右侧的数组或对象直接量在语法上保持格式一致。</p>
+          <p>在解构过程中，右侧的数组和对象中的一个或多个值会被提取出来，并赋值给左侧对应的变量名。解构赋值还用于初始化用var或let新声明的变量。</p>
           <div v-highlight>
             <pre>
               <code>
+                let [x, y] = [1, 2]
+
+                //等价于
+                let x = 1, y = 2
+              </code>
+            </pre>
+          </div>
+          <p>右侧数组包含的元素与左侧变量一一对应，但数量上并不需要一致。左侧多余变量使用undeifned值填充，右侧多余值会被忽略。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                let [x, y] = [1]                 //let x = 1, y = undefined
+                let [x] = [1, 2]                 //let x = 1
+                let [,x,,y] = [1, 2, 3, 4]       //let x = 2, y = 4
+                let [x, [y,z]] = [1, [2,3]]      //let x = 1, y = 2, z = 3
+              </code>
+            </pre>
+          </div>
+          <p>链式解构赋值。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                let sum1, sum2, arr;
+                arr = [sum1, sum2] = [1,2,3,4]
+
+                //等价于
+                let sum1 = 1, sum2 = 2, arr = [1,2,3,4];
+              </code>
+            </pre>
+          </div>
+          <p>解构赋值在对象上的应用。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //对象
+                let o = {x:1, y:2, z:3}
+
+                //解构赋值
+                let {x:a, y:b, z:c} = o
+
+                a => 1
+                b => 2
+                c => 3
               </code>
             </pre>
           </div>
@@ -119,13 +183,13 @@ export default {
 
 <style scoped lang="stylus">
 .supplement-1
-  position relative
+  position: relative
   .layout-content
-    display flex
-    flex-direction row
-    flex-wrap wrap
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
 .ivu-card
-  align-self flex-start !important
-  margin-top 20px
-  margin-right 20px
+  align-self: flex-start !important
+  margin-top: 20px
+  margin-right: 20px
 </style>

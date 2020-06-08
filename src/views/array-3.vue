@@ -67,7 +67,7 @@
           <div v-highlight>
             <pre>
               <code>
-                var obj = {0: 0, 1: 1, 2: 4, 3: 9，length: 4}
+                var obj = {0: 0, 1: 1, 2: 4, 3: 9, length: 4}
 
                 Array.prototype.join.call(obj, '+') => '0+1+4+9'
 
@@ -86,6 +86,30 @@
                 Array.map(obj, function(item){
                   return item + 1
                 }) => [1, 2, 5, 10]
+              </code>
+            </pre>
+          </div>
+          <p>表示网页结构的HTMLCollection对象就是一个类数组对象。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var els = document.getElementsByTagName("li")
+
+                //类数组对象使用常规数组的方法
+                Array.prototype.forEach.call(els, function (item) {
+                  item.onclick = function () {
+                    alert(item.innerHTML)
+                  }
+                })
+
+                //执行相同的操作
+                for (var i = 0, len = els.length; i &lt; len; i++) {
+                  els[i].onclick = function(a) {
+                    return function() {
+                      alert(els[a].innerHTML)
+                    }
+                  }(i)
+                }
               </code>
             </pre>
           </div>

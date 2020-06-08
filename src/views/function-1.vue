@@ -28,6 +28,7 @@
             <pre>
               <code>
                 var x = 1
+
                 function fn() {
                   var x = 2
                   return new Function('return x')

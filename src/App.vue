@@ -45,12 +45,22 @@
                 <MenuItem name="statement-2" to="/statement-2">条件、循环语句</MenuItem>
                 <MenuItem name="statement-3" to="/statement-3">语句补充</MenuItem>
               </Submenu>
+              <Submenu name="reference">
+                <template slot="title">
+                  <Icon type="ios-navigate"></Icon>引用类型
+                </template>
+                <MenuItem name="reference-1" to="/reference-type-1">日期</MenuItem>
+                <MenuItem name="reference-2" to="/reference-type-2">正则表达式</MenuItem>
+                <MenuItem name="reference-3" to="/reference-type-3">基本包装类型</MenuItem>
+                <MenuItem name="reference-4" to="/reference-type-4">单体内置对象</MenuItem>
+              </Submenu>
               <Submenu name="object">
                 <template slot="title">
                   <Icon type="ios-keypad"></Icon>对象
                 </template>
                 <MenuItem name="object-1" to="/object-1">对象及属性</MenuItem>
-                <MenuItem name="object-2" to="/object-2">数组方法</MenuItem>
+                <MenuItem name="object-2" to="/object-2">OOP模式</MenuItem>
+                <MenuItem name="object-3" to="/object-3">序列化对象</MenuItem>
               </Submenu>
               <Submenu name="array">
                 <template slot="title">
@@ -67,6 +77,19 @@
                 <MenuItem name="function-1" to="/function-1">函数概述</MenuItem>
                 <MenuItem name="function-2" to="/function-2">函数参数</MenuItem>
                 <MenuItem name="function-3" to="/function-3">闭包</MenuItem>
+                <MenuItem name="function-4" to="/function-4">原型对象</MenuItem>
+                <MenuItem name="function-5" to="/function-5">继承</MenuItem>
+                <MenuItem name="function-6" to="/function-6">继承扩展</MenuItem>
+                <MenuItem name="function-7" to="/function-7">模块模式</MenuItem>
+              </Submenu>
+              <Submenu name="bom">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>函数
+                </template>
+                <MenuItem name="bom-1" to="/bom-1">window对象</MenuItem>
+                <MenuItem name="bom-2" to="/bom-2">函数参数</MenuItem>
+                <MenuItem name="bom-3" to="/bom-3">闭包</MenuItem>
+                <MenuItem name="bom-4" to="/bom-4">原型对象</MenuItem>
               </Submenu>
               <Submenu name="supplement">
                 <template slot="title">
