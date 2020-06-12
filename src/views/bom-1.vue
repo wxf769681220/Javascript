@@ -2,7 +2,7 @@
   <div class="bom-1">
     <div class="layout-content">
       <Card dis-hover shadow style="width:auto">
-        <h3 slot="title">1.全局作用域</h3>
+        <h3 slot="title">1.window对象</h3>
         <div>
           <p>所有在全局作用域中定义的变量或函数都是window对象的属性和方法。</p>
           <div v-highlight>
@@ -23,7 +23,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:auto">
+      <Card dis-hover shadow style="width:700px">
         <h3 slot="title">2.浏览器窗口</h3>
         <div>
           <p>窗口位置。</p>
@@ -66,27 +66,92 @@
               </code>
             </pre>
           </div>
-          <p>导航和打开窗口。使用window.open()方法</p>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:700px">
+        <h3 slot="title">3.导航和打开窗口</h3>
+        <div>
+          <p>导航和打开窗口。使用window.open()方法，既可以导航到一个特定的URL，也可以打开一个新的浏览器窗口。它接收4个参数，要加载的URL、窗口目标、一个描述窗口的特性字符串和
+            一个表示新页面是否取代浏览器历史记录中当前加载页面的布尔值。</p>
           <div v-highlight>
             <pre>
               <code>
-                //跨浏览器获得页面视口大小
-                var pageWidth = window.innerWidth
-                var pageHeight = window.innerHeight
+                //打开一个特定url
+                //等价于&lt;a href="http://www.baidu.com" target="name1">&lt;/a>
+                window.open('http://www.baidu.com', 'name1')
 
-                if (typeof pageWidth !== 'number') {
-                  if (document.compatMode === "CSS1Compat") {
-                    pageWidth = document.documentElement.clientWidth
-                    pageHeight = document.documentElement.clientHeight
-                  } else {
-                    pageWidth = document.body.clientWidth
-                    pageHeight = document.body.clientHeight
-                  }
+                //打开一个新窗口
+                window.open('http://www.baidu.com', '_blank', 'height=400,width=400')
+
+                //返回新窗口的引用
+                var win = window.open(url)
+                win.moveTo()
+                win.resizeTo()
+                win.close() //关闭窗口(且只能关闭新打开的窗口)
+                win.closed => true
+
+                //opener属性中保存着打开它的原始窗口对象
+                //设置null,表示浏览器新创建的窗口不需要与原始窗口通信，可以在独立的进程中运行
+                win.opener => window
+                win.opener = null
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:700px">
+        <h3 slot="title">4.窗口屏蔽程序</h3>
+        <div>
+          <p>大多数浏览器都内置有弹出窗口屏蔽程序。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //检测浏览器弹窗是否被屏蔽
+                var win = window.open('http://www.baidu.com', '_blank')
+                if (win === null) {
+                  alert('弹出窗口已被屏蔽!')
                 }
 
-                //调整窗口大小(默认被禁用)
-                window.resizeTo(100, 100) //表示调整到100 * 100
-                window.resizeBy(100, 100) //表示调整量
+                //若浏览器程序阻止弹出窗口,window.open()方法会抛出一个异常,
+                //因此使用try/catch语句更为准确的检测
+                var blocked = false
+                try {
+                  var win = window.open('http://www.baidu.com', '_blank')
+                  if (win === null) {
+                    blocked = true
+                  }
+                } catch(e) {
+                  blocked = true
+                }
+                if (blocked) {
+                  alert('弹出窗口已被屏蔽!')
+                }
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:700px">
+        <h3 slot="title">5.系统对话框</h3>
+        <div>
+          <p>alert()、confirm()和prompt()方法。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                alert('something')
+
+                /*********************/
+                if (confirm('are you sure?')) {
+                  alert('ok')
+                } else {
+                  alert('no')
+                }
+
+                /*********************/
+                var result = prompt('what your name?', '')
+                if (result !== null) {
+                  alert(result)
+                }
               </code>
             </pre>
           </div>

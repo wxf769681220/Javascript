@@ -23,7 +23,7 @@
         </Header>
         <Layout>
           <Sider hide-trigger :style="{background: '#fff'}">
-            <Menu active-name="statement-1" theme="light" width="auto">
+            <Menu active-name="statement-1" theme="light" width="220px">
               <Submenu name="dataType">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>数据类型
@@ -84,12 +84,25 @@
               </Submenu>
               <Submenu name="bom">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>函数
+                  <Icon type="ios-analytics"></Icon>BOM
                 </template>
                 <MenuItem name="bom-1" to="/bom-1">window对象</MenuItem>
-                <MenuItem name="bom-2" to="/bom-2">函数参数</MenuItem>
-                <MenuItem name="bom-3" to="/bom-3">闭包</MenuItem>
-                <MenuItem name="bom-4" to="/bom-4">原型对象</MenuItem>
+                <MenuItem name="bom-2" to="/bom-2">location对象</MenuItem>
+                <MenuItem name="bom-3" to="/bom-3">navigator对象</MenuItem>
+                <MenuItem name="bom-4" to="/bom-4">screen对象</MenuItem>
+                <MenuItem name="bom-5" to="/bom-5">history对象</MenuItem>
+                <MenuItem name="bom-6" to="/bom-6">定时器</MenuItem>
+                <MenuItem name="bom-7" to="/bom-7">客户端检测</MenuItem>
+              </Submenu>
+              <Submenu name="dom">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>DOM
+                </template>
+                <MenuItem name="dom-1" to="/dom-1">1.节点-Node类型</MenuItem>
+                <MenuItem name="dom-2" to="/dom-2">2.文档-Document类型</MenuItem>
+                <MenuItem name="dom-3" to="/dom-3">3.元素-Element类型</MenuItem>
+                <MenuItem name="dom-4" to="/dom-4">4.文本-Text类型</MenuItem>
+                <MenuItem name="dom-5" to="/dom-5">5.文档片段-DocumentFragment类型</MenuItem>
               </Submenu>
               <Submenu name="supplement">
                 <template slot="title">

@@ -113,6 +113,35 @@
               </code>
             </pre>
           </div>
+          <p>NodeList对象是一个类数组对象，可以将其转换成常规数组，以便对其进行操作。</p>
+          <div>
+            <div v-highlight>
+              <pre>
+              <code>
+                function convertToArray(el) {
+                  //首先判断其是否是元素节点
+                  if (el.ELEMENT_NODE !== 1) return
+
+                  var array = null
+
+                  try {
+                    //非IE
+                    array = Array.prototype.slice.call(el.children, 0)
+                  } catch (ex) {
+                    array = new Array()
+                    //手动枚举所有项
+                    for (var i = 0, len = el.length; i &lt; len; i++) {
+                      array.push(el[i])
+                    }
+                  }
+                  return array
+                }
+
+                convertToArray(someElementNode)
+              </code>
+            </pre>
+            </div>
+          </div>
         </div>
       </Card>
       <Card dis-hover shadow style="width:640px">

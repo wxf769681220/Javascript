@@ -111,18 +111,30 @@
                 x.slice(1) => 'ello world'  //到结尾
                 x.slice(1,3) => 'el'        //左闭右开区间
 
-                x.substr() => 'hello world'
-                x.substr(1) => 'ello world'
-                x.substr(1,3) => 'ell'
+                x.substr() => 'hello world' //一次深复制
+                x.substr(1) => 'ello world' //到结尾
+                x.substr(1,3) => 'ell'      //返回字符个数
 
-                x.substring() => 'hello world'
-                x.substring(1) => 'ello world'
-                x.substring(1,3) => 'el'
+                x.substring() => 'hello world' //一次深复制
+                x.substring(1) => 'ello world' //到结尾
+                x.substring(1,3) => 'el'       //左闭右开区间
 
                 //参数为负值，
                 //slice()：字符串长度+负值（始终要确保第二个参数大于第一个参数）
                 //substr()：第一个参数是负值 + 字符串长度；若第一个参数为负值，则第二个参数不能是负值
                 //substring()：两个参数不能都是负值；若只有一个参数且负值，则返回整个字符串。两个参数时，负值转为0
+              </code>
+            </pre>
+          </div>
+          <p>split()方法，以指定字符分隔字符串，返回由分隔的各部分组成的数组。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var qs = 'x=1&y=2&z=3'
+                qs.split('&') => ['x=1', 'y=2', 'z=3']
+
+                var str = '1010101'
+                str.split('0') => ['1', '1', '1', '1']
               </code>
             </pre>
           </div>
