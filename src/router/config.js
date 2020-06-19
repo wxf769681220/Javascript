@@ -33,14 +33,35 @@ const Bom2 = () => import('views/bom-2')
 const Bom3 = () => import('views/bom-3')
 const Bom4 = () => import('views/bom-4')
 const Bom5 = () => import('views/bom-5')
-const Bom6 = () => import('views/bom-6')
-const Bom7 = () => import('views/bom-7')
 
 const Dom1 = () => import('views/dom-1')
 const Dom2 = () => import('views/dom-2')
 const Dom3 = () => import('views/dom-3')
 const Dom4 = () => import('views/dom-4')
 const Dom5 = () => import('views/dom-5')
+const Dom6 = () => import('views/dom-6')
+const Dom7 = () => import('views/dom-7')
+const Dom8 = () => import('views/dom-8')
+
+const DomEvent1 = () => import('views/dom-event-1')
+const DomEvent2 = () => import('views/dom-event-2')
+const DomEvent3 = () => import('views/dom-event-3')
+const DomEvent4 = () => import('views/dom-event-4')
+const DomEvent5 = () => import('views/dom-event-5')
+
+const Form1 = () => import('views/form-1')
+const Form2 = () => import('views/form-2')
+const Form3 = () => import('views/form-3')
+const Form4 = () => import('views/form-4')
+
+const Json1 = () => import('views/json-1')
+const Ajax1 = () => import('views/ajax-1')
+
+const Canvas1 = () => import('views/canvas-1')
+const Canvas2 = () => import('views/canvas-2')
+
+const Timer1 = () => import('views/timer-1')
+const ClientDetection1 = () => import('views/client-detection-1')
 
 const Supplement1 = () => import('views/supplement-1')
 
@@ -158,14 +179,6 @@ const routes = [
     component: Bom5
   },
   {
-    path: '/bom-6',
-    component: Bom6
-  },
-  {
-    path: '/bom-7',
-    component: Bom7
-  },
-  {
     path: '/dom-1',
     component: Dom1
   },
@@ -184,6 +197,78 @@ const routes = [
   {
     path: '/dom-5',
     component: Dom5
+  },
+  {
+    path: '/dom-6',
+    component: Dom6
+  },
+  {
+    path: '/dom-7',
+    component: Dom7
+  },
+  {
+    path: '/dom-8',
+    component: Dom8
+  },
+  {
+    path: '/dom-event-1',
+    component: DomEvent1
+  },
+  {
+    path: '/dom-event-2',
+    component: DomEvent2
+  },
+  {
+    path: '/dom-event-3',
+    component: DomEvent3
+  },
+  {
+    path: '/dom-event-4',
+    component: DomEvent4
+  },
+  {
+    path: '/dom-event-5',
+    component: DomEvent5
+  },
+  {
+    path: '/form-1',
+    component: Form1
+  },
+  {
+    path: '/form-2',
+    component: Form2
+  },
+  {
+    path: '/form-3',
+    component: Form3
+  },
+  {
+    path: '/form-4',
+    component: Form4
+  },
+  {
+    path: '/json-1',
+    component: Json1
+  },
+  {
+    path: '/ajax-1',
+    component: Ajax1
+  },
+  {
+    path: '/canvas-1',
+    component: Canvas1
+  },
+  {
+    path: '/canvas-2',
+    component: Canvas2
+  },
+  {
+    path: '/timer-1',
+    component: Timer1
+  },
+  {
+    path: '/client-detection-1',
+    component: ClientDetection1
   },
   {
     path: '/supplement-1',

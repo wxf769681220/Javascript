@@ -1,5 +1,5 @@
--5<template>
-  <div class="bom-6">
+<template>
+  <div class="timer-1">
     <div class="layout-content">
       <Card dis-hover shadow style="width:600px">
         <h3 slot="title">1.超时调用</h3>
@@ -157,7 +157,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'bom-6',
+  name: 'timer-1',
   created() {},
   components: {
     Card
@@ -166,7 +166,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.bom-6
+.timer-1
   position: relative
   .layout-content
     display: flex

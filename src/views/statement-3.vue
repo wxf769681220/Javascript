@@ -102,35 +102,59 @@
       <Card :dis-hover="true" shadow style="width:750px">
         <h3 slot="title">5.try/catch/finally语句</h3>
         <div>
-          <p>try/catch/finally语句是Javascript的异常处理机制。其中catch与finally都是可选的，但try从句需要至少二者之一组成完整的语句。</p>
+          <ul>
+            <li>try/catch/finally语句是Javascript的异常处理机制。其中catch与finally都是可选的，但try从句需要至少二者之一组成完整的语句。</li>
+            <li>try语句中的代码，通常会从头执行到尾而不产生任何问题，但有时会出现错误，抛出一个异常（可以由throw语句直接抛出异常）。</li>
+            <li>catch语句中的代码，当且仅当try语句块代码出现错误，抛出异常，才会执行这里的代码。</li>
+            <li>catch语句，通过局部变量e来获得对Error对象或者抛出的其他值的引用。</li>
+            <li>finally语句中的代码始终都会被执行（无论try语句块是否抛出了异常）。终止try语句块的方式有：</li>
+          </ul>
           <div v-highlight>
             <pre>
               <code>
                 try {
-                  //通常这里的代码会从头执行到尾而不产生任何问题
-                  //但有时会抛出一个异常，要么是由throw语句直接抛出异常
-                  //要么是通过调用一个方法间接抛出异常
+                  //可能会导致错误的代码
                 }
                 catch(e) {
-                  //当且仅当try语句块抛出异常，才会执行这里的代码
-                  //这里可以可以通过局部变量e来获得对Error对象或者抛出的其他值的引用
-                  //这里的代码可以基于某种原因处理这个异常，也可以忽略这个异常
-                  //还可以通过throw语句重新抛出这个异常
+                  //在错误发生时如何处理
                 }
                 finally {
-                  //无论try语句块是否抛出了异常，这里的逻辑总是会执行；终止try语句块的方式有：
-                  //1.正常终止，执行完语句块的最后一条语句
-                  //2.通过break、continue或return语句终止
-                  //3.抛出一个异常，异常被catch语句捕获
-                  //4.抛出一个异常，异常未被捕获，继续向上传播
+                  //这里代码始终都会被执行
                 }
               </code>
             </pre>
           </div>
-        </div>
-        <p>使用prompt()和alert()来控制用户的输入和输出。</p>
-        <div v-highlight>
-          <pre>
+          <p>立即终止try语句的方式：
+            <ol class="menu">
+              <li>正常终止，执行完语句块的最后一条语句。</li>
+              <li>抛出一个异常（或遇到throw语句），异常被catch语句捕获。</li>
+              <li>抛出一个异常（或遇到throw语句），异常未被捕获，继续向上传播。</li>
+              <li>通过break、continue或return语句终止。</li>
+            </ol>
+          </p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //由于finally语句中也包含return语句
+                //导致try语句中的return语句被忽略，fn函数返回3
+                //去掉finally语句，fn函数返回1
+                function fn() {
+                  try {
+                    return 1
+                  }
+                  catch(e) {
+                    return 2
+                  }
+                  finally {
+                    return 3
+                  }
+                }
+              </code>
+            </pre>
+          </div>
+          <p>使用prompt()和alert()来控制用户的输入和输出。</p>
+          <div v-highlight>
+            <pre>
               <code>
                 try {
                   var n = Number(prompt('请输入一个正整数'， ''))
@@ -148,40 +172,7 @@
                 finally {}
               </code>
             </pre>
-        </div>
-        <ul class="menu">
-          <li>正常情况下，解析器执行到try块的尾部，然后开始执行finally中的代码，</li>
-          <li>当由于return、break和continue语句使得解析器跳出try语句块时，解析器在执行新的目标代码之前先执行finally中的代码。</li>
-          <li>若try中抛出了一个异常，且存在一条与之相关的catch从句处理这个异常，解析器会首先执行catch中的代码，然后在执行finally中的代码。</li>
-          <li>若不存在处理异常的catch从句，解析器会首先执行finally中的代码，然后向上传播这个异常，直到找到能处理这个异常的catch从句。</li>
-        </ul>
-        <div v-highlight>
-          <pre>
-              <code>
-                //多catch从句
-                //在catch从句的参数中加入关键字if以及一个条件判断表达式。
-                //当产生一个异常时，程序会尝试依次执行每一条catch从句，
-                //执行catch从句会先对其条件表达式求值，若求值结果为true，则执行catch从句中的逻辑，
-                //同时跳过其他的catch从句（即不再执行其他的catch从句）
-                try {
-                    // 这里可能会抛出多种类型的异常
-                    throw 1;
-                } catch (e
-                    if e instanceof ReferenceError) {
-                    // 这里处理引用错误
-                } catch (e
-                    if e === "quit") {
-                    // 这里处理字符串是“quit”的情况
-                } catch (e
-                    if typeof e === "string") {
-                    // 处理其他字符串的情况
-                } catch (e) {
-                    // 处理余下的异常情况
-                } finally {
-                    // finally从句正常执行
-                }
-              </code>
-            </pre>
+          </div>
         </div>
       </Card>
       <Card :dis-hover="true" shadow style="width:450px">

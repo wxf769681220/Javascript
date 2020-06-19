@@ -1,4 +1,4 @@
--5<template>
+<template>
   <div class="dom-4">
     <div class="layout-content">
       <Card dis-hover shadow style="width:600px">

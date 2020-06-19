@@ -91,8 +91,6 @@
                 <MenuItem name="bom-3" to="/bom-3">navigator对象</MenuItem>
                 <MenuItem name="bom-4" to="/bom-4">screen对象</MenuItem>
                 <MenuItem name="bom-5" to="/bom-5">history对象</MenuItem>
-                <MenuItem name="bom-6" to="/bom-6">定时器</MenuItem>
-                <MenuItem name="bom-7" to="/bom-7">客户端检测</MenuItem>
               </Submenu>
               <Submenu name="dom">
                 <template slot="title">
@@ -103,6 +101,69 @@
                 <MenuItem name="dom-3" to="/dom-3">3.元素-Element类型</MenuItem>
                 <MenuItem name="dom-4" to="/dom-4">4.文本-Text类型</MenuItem>
                 <MenuItem name="dom-5" to="/dom-5">5.文档片段-DocumentFragment类型</MenuItem>
+                <MenuItem name="dom-6" to="/dom-6">6.DOM动态脚本</MenuItem>
+                <MenuItem name="dom-7" to="/dom-7">7.DOM扩展</MenuItem>
+                <MenuItem name="dom-8" to="/dom-8">8.DOM2和DOM3</MenuItem>
+              </Submenu>
+              <Submenu name="dom-event">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>DOM-事件
+                </template>
+                <MenuItem name="dom-event-1" to="/dom-event-1">1.事件处理程序</MenuItem>
+                <MenuItem name="dom-event-2" to="/dom-event-2">2.事件对象</MenuItem>
+                <MenuItem name="dom-event-3" to="/dom-event-3">3.事件类型</MenuItem>
+                <MenuItem name="dom-event-4" to="/dom-event-4">4.事件类型-设备事件</MenuItem>
+                <MenuItem name="dom-event-5" to="/dom-event-5">5.事件委托</MenuItem>
+              </Submenu>
+              <Submenu name="form">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>表单
+                </template>
+                <MenuItem name="form-1" to="/form-1">1.HTMLFormELement类型</MenuItem>
+                <MenuItem name="form-2" to="/form-2">2.表单字段</MenuItem>
+                <MenuItem name="form-3" to="/form-3">3.表单序列化</MenuItem>
+                <MenuItem name="form-4" to="/form-4">4.富文本编辑</MenuItem>
+              </Submenu>
+              <Submenu name="json">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>JSON
+                </template>
+                <MenuItem name="json-1" to="/json-1">1.解析与序列化</MenuItem>
+              </Submenu>
+              <Submenu name="ajax">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>Ajax
+                </template>
+                <MenuItem name="ajax-1" to="/ajax-1">1.XMLHttpRequest对象</MenuItem>
+              </Submenu>
+              <Submenu name="canvas">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>Canvas绘图
+                </template>
+                <MenuItem name="canvas-1" to="/canvas-1">1.canvas</MenuItem>
+                <MenuItem name="canvas-2" to="/canvas-2">2.111</MenuItem>
+              </Submenu>
+              <Submenu name="drag">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>原生拖放
+                </template>
+              </Submenu>
+              <Submenu name="media">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>媒体元素
+                </template>
+              </Submenu>
+              <Submenu name="timer">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>定时器
+                </template>
+                <MenuItem name="timer-1" to="/timer-1">超时和间歇调用</MenuItem>
+              </Submenu>
+              <Submenu name="clientDetection">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>客户端检测
+                </template>
+                <MenuItem name="clientDetection-1" to="/client-detection-1">检测方法</MenuItem>
               </Submenu>
               <Submenu name="supplement">
                 <template slot="title">

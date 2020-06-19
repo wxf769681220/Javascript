@@ -1,14 +1,18 @@
--5<template>
-  <div class="bom-7">
+<template>
+  <div class="dom-8">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:400px">
-        <h3 slot="title">1.能力检测</h3>
-      </Card>
-      <Card dis-hover shadow style="width:400px">
-        <h3 slot="title">2.怪癖检测</h3>
-      </Card>
-      <Card dis-hover shadow style="width:400px">
-        <h3 slot="title">3.用户代理检测</h3>
+      <Card dis-hover shadow style="width:600px">
+        <h3 slot="title">1.DOM2和DOM3</h3>
+        <div>
+          <p>DOM1级主要定义了HTML和XML文档的底层结构。DOM2和DOM3级则在这个解构上引入了耕读ode交互能力。</p>
+          <!-- <div v-highlight>
+            <pre>
+              <code>
+
+              </code>
+            </pre>
+          </div> -->
+        </div>
       </Card>
     </div>
   </div>
@@ -18,7 +22,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'bom-7',
+  name: 'dom-8',
   created() {},
   components: {
     Card
@@ -27,7 +31,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.bom-7
+.dom-8
   position: relative
   .layout-content
     display: flex

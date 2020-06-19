@@ -1,4 +1,4 @@
--5<template>
+<template>
   <div class="dom-2">
     <div class="layout-content">
       <Card dis-hover shadow style="width:500px">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:580px">
+      <Card dis-hover shadow style="width:650px">
         <h3 slot="title">2.document对象属性</h3>
         <div>
           <div v-highlight>
@@ -35,9 +35,16 @@
                 document.doctype          =>获取对&lt;!DOCTYPE>的引用
                 document.documentElement  =>获取对&lt;html>的引用
                 document.head             =>获取对&lt;head>的引用
-                document.charset          =>一般值为'UTP-8'
+                document.charset          =>文档中实际使用的字符集，默认值值为'UTP-8'
+                document.defaultCharset   =>默认浏览器或操作系统的对字符集的设置
                 document.title            =>获取对&lt;title>的引用
                 document.body             =>获取对&lt;body>的引用
+
+                //特殊集合
+                document.anchors    => 文档中所有带name特性的&lt;a>元素
+                document.links      => 文档中所有带href特性的&lt;a>元素
+                document.forms      => 文档中所有的&lt;form>元素
+                document.images     => 文档中所有的&lt;img>元素
 
                 //网页请求相关属性,
                 //此信息都存在于请求的HTTP头部
@@ -100,7 +107,7 @@
               </code>
             </pre>
           </div>
-          <p>NodeList对象与HTMLCollection对象的区别。</p>
+          <p>NodeList对象不能像HTMLCollection对象一样使用字符串访问其属性。</p>
           <div v-highlight>
             <pre>
               <code>
@@ -109,6 +116,12 @@
 
                 els['li01'] => undefined
                 els.namedItem('li01') => error
+
+                //对于循环遍历NodeList对象的特别处理
+                //使用length属性初始化第二个变量
+                for (var i = 0, len = els.length; 1&lt;len; i++) {
+                  //..
+                }
               </code>
             </pre>
           </div>

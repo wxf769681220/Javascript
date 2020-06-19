@@ -1,4 +1,4 @@
--5<template>
+<template>
   <div class="dom-1">
     <div class="layout-content">
       <Card dis-hover shadow style="width:450px">
@@ -81,7 +81,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:700px">
+      <Card dis-hover shadow style="width:800px">
         <h3 slot="title">5.节点关系属性</h3>
         <ul class="menu">
           <li>每个节点都有一个parentNode属性，指向其在文档树中的父节点。</li>
@@ -89,10 +89,10 @@
             每个节点都有一个childNodes属性，指向其在文档树中的所有子节点。childNodes属性中保存着一个NodeList对象，这是一个类数组对象，用于保存一组有序的节点。
             NodeList对象是基于DOM结构动态执行查询的结果，因此DOM结构的变化能够自动反映在nodeList对象中。
           </li>
-          <li>每个节点都有一个firstChild属性，指向其子节点中的第一个节点。</li>
-          <li>每个节点都有一个lastChild属性，指向其子节点中的最后一个节点。</li>
-          <li>每个节点都有一个previousSibling属性，指向其同胞节点中，位其前的第一个节点。</li>
-          <li>每个节点都有一个nextSibling属性，指向其同胞节点中，位其后的第一个节点。；</li>
+          <li>每个节点都有一个firstChild属性，指向其子节点中的第一个节点。（常用firstElementChild替代）</li>
+          <li>每个节点都有一个lastChild属性，指向其子节点中的最后一个节点。（常用lastChildElementChild替代）</li>
+          <li>每个节点都有一个previousSibling属性，指向其同胞节点中，位其前的第一个节点。（常用previousElementSibling替代）</li>
+          <li>每个节点都有一个nextSibling属性，指向其同胞节点中，位其后的第一个节点。（常用nextElementSibling替代）</li>
         </ul>
         <div>
           <div v-highlight>
@@ -237,6 +237,20 @@
 
                 //标准化,去空文本
                 menu.normalize()
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:600px">
+        <h3 slot="title">7.检测节点关系</h3>
+        <div>
+          <p>确定一个节点是否是另一个节点的后代，使用contains()方法。若是，返回true；否则，返回false。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //body节点是html的后代节点
+                document.documentElement.contains(document.body) => true
               </code>
             </pre>
           </div>

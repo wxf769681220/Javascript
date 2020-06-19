@@ -1,4 +1,4 @@
--5<template>
+<template>
   <div class="dom-3">
     <div class="layout-content">
       <Card dis-hover shadow style="width:500px">
@@ -45,11 +45,11 @@
           <div v-highlight>
             <pre>
               <code>
-                &lt;div id="hook" class="div1 div2" title="body div">&lt;/div>
+                &lt;div id="hook" class="div1 div2 div3" title="body div">&lt;/div>
 
                 var el = document.getElementById('hook')
                 el.id => word
-                el.className => 'div1 div2'
+                el.className => 'div1 div2 div3'
                 el.title => 'body div'
               </code>
             </pre>
@@ -60,6 +60,42 @@
                 //创建属性节点，不建议使用
                 var attr = document.createAttribute('align')
                 attr.value = 'left'
+              </code>
+            </pre>
+          </div>
+          <p>在操作类名时，需要通过className属性添加、删除和替换类名。由于className是一个字符串，任何操作都是对这个字符串的修改。
+            HTML5新增classList属性是新集合类型DOMTokenList的实例。该属性具有的属性或方法：
+            <ul class="menu">
+              <li>length：列表长度。</li>
+              <li>value：表示类名的字符串形式。</li>
+              <li>add(str)：将给定字符串添加到列表中。若值已经存在，则不再添加。</li>
+              <li>remove(str)：从列表中删除指定字符串。</li>
+              <li>toggle(str)：若列表存在给定字符串，则删除；否则，添加。</li>
+              <li>contains(str)：表示列表中是否存在给定字符串。若存在，则返回true；否则，返回false。</li>
+            </ul>
+          </p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var el = document.getElementById('hook')
+                el.classList => DOMTokenList[div1,div2,div3]
+
+                //访问值
+                el.classList[0]      => 'div1'
+                el.classList.item(0) => 'div1'
+
+                //属性
+                el.classList.length => 3
+                el.classList.value => 'div1 div2 div3'
+              </code>
+            </pre>
+          </div>
+          <p>在操作css样式时，需要通过style属性。style对象是CSSStyleDeclaration的实例。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var el = document.getElementById('hook')
+                el.style => CSSStyleDeclaration{}
               </code>
             </pre>
           </div>
@@ -137,7 +173,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:650px">
+      <Card dis-hover shadow style="width:740px">
         <h3 slot="title">3.attributes特性对象</h3>
         <div>
           <p>
@@ -192,12 +228,7 @@
               </code>
             </pre>
           </div>
-        </div>
-      </Card>
-      <Card dis-hover shadow style="width:720px">
-        <h3 slot="title">4.遍历元素特性</h3>
-        <div>
-          <p>通常不适用attributes属性来对元素特性进行遍历操作，因为不方便。当我们需要遍历元素特性时会用到attributes特性对象。</p>
+          <p>当我们需要遍历元素特性时会用到attributes特性对象。</p>
           <div v-highlight>
             <pre>
               <code>

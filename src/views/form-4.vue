@@ -1,17 +1,13 @@
 <template>
-  <div class="reference-type-2">
+  <div class="form-4">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:auto">
-        <h3 slot="title">1.RegExp类型</h3>
+      <Card dis-hover shadow style="width:500px">
+        <h3 slot="title">1.富文本编辑</h3>
         <div>
+          <p>所间即所得</p>
           <div v-highlight>
             <pre>
               <code>
-                //匹配空格
-                /\s+/
-
-                //匹配非数字值
-                /[^\d]/.test(value)
               </code>
             </pre>
           </div>
@@ -25,7 +21,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'reference-type-2',
+  name: 'form-4',
   created() {},
   components: {
     Card
@@ -34,7 +30,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.reference-type-2
+.form-4
   position: relative
   .layout-content
     display: flex

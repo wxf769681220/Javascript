@@ -135,6 +135,9 @@
 
                 var str = '1010101'
                 str.split('0') => ['1', '1', '1', '1']
+
+                var blank = 'a b c'
+                blank.split(/\s+/) => ['a', 'b', 'c']
               </code>
             </pre>
           </div>

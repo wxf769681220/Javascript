@@ -1,17 +1,18 @@
 <template>
-  <div class="reference-type-2">
+  <div class="ajax-1">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:auto">
-        <h3 slot="title">1.RegExp类型</h3>
+      <Card dis-hover shadow style="width:550px">
+        <h3 slot="title">1.XMLHttpRequest对象</h3>
         <div>
+          <p></p>
+          <ul class="menu">
+            <li>基本类型值：字符串、数值、布尔值和null。（不支持undefined）</li>
+            <li>对象：一组无序的键值对。</li>
+            <li>数组：一组有序的值的列表。</li>
+          </ul>
           <div v-highlight>
             <pre>
               <code>
-                //匹配空格
-                /\s+/
-
-                //匹配非数字值
-                /[^\d]/.test(value)
               </code>
             </pre>
           </div>
@@ -25,8 +26,9 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'reference-type-2',
+  name: 'ajax-1',
   created() {},
+  methods: {},
   components: {
     Card
   }
@@ -34,7 +36,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.reference-type-2
+.ajax-1
   position: relative
   .layout-content
     display: flex
