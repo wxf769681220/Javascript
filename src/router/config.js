@@ -55,7 +55,16 @@ const Form3 = () => import('views/form-3')
 const Form4 = () => import('views/form-4')
 
 const Json1 = () => import('views/json-1')
+
 const Ajax1 = () => import('views/ajax-1')
+const Ajax2 = () => import('views/ajax-2')
+const Ajax3 = () => import('views/ajax-3')
+const Ajax4 = () => import('views/ajax-4')
+const Ajax5 = () => import('views/ajax-5')
+
+const OfflineApp1 = () => import('views/offline-app-1')
+const OfflineApp2 = () => import('views/offline-app-2')
+const OfflineApp3 = () => import('views/offline-app-3')
 
 const Canvas1 = () => import('views/canvas-1')
 const Canvas2 = () => import('views/canvas-2')
@@ -253,6 +262,34 @@ const routes = [
   {
     path: '/ajax-1',
     component: Ajax1
+  },
+  {
+    path: '/ajax-2',
+    component: Ajax2
+  },
+  {
+    path: '/ajax-3',
+    component: Ajax3
+  },
+  {
+    path: '/ajax-4',
+    component: Ajax4
+  },
+  {
+    path: '/ajax-5',
+    component: Ajax5
+  },
+  {
+    path: '/offline-app-1',
+    component: OfflineApp1
+  },
+  {
+    path: '/offline-app-2',
+    component: OfflineApp2
+  },
+  {
+    path: '/offline-app-3',
+    component: OfflineApp3
   },
   {
     path: '/canvas-1',

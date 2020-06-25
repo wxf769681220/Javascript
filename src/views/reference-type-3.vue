@@ -88,6 +88,16 @@
               </code>
             </pre>
           </div>
+          <p>indexOf()方法：返回某个指定的字符串值在字符串中首次出现的位置。如果要检索的字符串值没有出现，则该方法返回 -1。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var str="Hello world!"
+                str.indexOf("Hello") => 0
+                str.indexOf("hi") => -1
+              </code>
+            </pre>
+          </div>
           <p>concat()方法用于拼接字符串，返回拼接得到的新字符串。实践中跟多使用加号操作符。</p>
           <div v-highlight>
             <pre>

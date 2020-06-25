@@ -23,7 +23,7 @@
         </Header>
         <Layout>
           <Sider hide-trigger :style="{background: '#fff'}">
-            <Menu active-name="statement-1" theme="light" width="220px">
+            <Menu active-name="statement-1" theme="light" width="240px">
               <Submenu name="dataType">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>数据类型
@@ -135,6 +135,18 @@
                   <Icon type="ios-analytics"></Icon>Ajax
                 </template>
                 <MenuItem name="ajax-1" to="/ajax-1">1.XMLHttpRequest对象</MenuItem>
+                <MenuItem name="ajax-2" to="/ajax-2">2.HTTP请求</MenuItem>
+                <MenuItem name="ajax-3" to="/ajax-3">3.XMLHttpRequest2级</MenuItem>
+                <MenuItem name="ajax-4" to="/ajax-4">4.跨域资源共享</MenuItem>
+                <MenuItem name="ajax-5" to="/ajax-5">5.其他跨域技术</MenuItem>
+              </Submenu>
+              <Submenu name="offline">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>离线应用与客户端存储
+                </template>
+                <MenuItem name="offline-1" to="/offline-app-1">1.离线应用</MenuItem>
+                <MenuItem name="offline-2" to="/offline-app-2">2.Cookie</MenuItem>
+                <MenuItem name="offline-3" to="/offline-app-3">3.Storage</MenuItem>
               </Submenu>
               <Submenu name="canvas">
                 <template slot="title">

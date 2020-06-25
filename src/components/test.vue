@@ -1,6 +1,10 @@
 <template>
   <div class="test">
-    test
+    <ul class="menu">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
 </template>
 
@@ -20,5 +24,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-</style>
+<style scoped lang="stylus"></style>

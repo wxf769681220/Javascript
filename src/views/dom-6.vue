@@ -23,7 +23,7 @@
                   script.src = url
                   document.body.appendChild(script)
                 }
-                loadScript(client.js)
+                loadScript('client.js')
               </code>
             </pre>
           </div>
@@ -56,7 +56,7 @@
                   head.appendChild(link)
                 }
 
-                loadStyles(style.js)
+                loadStyles('style.js')
               </code>
             </pre>
           </div>
