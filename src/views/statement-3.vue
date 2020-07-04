@@ -1,7 +1,7 @@
 <template>
   <div class="statement-3">
     <div class="layout-content">
-      <Card :dis-hover="true" shadow style="width:450px">
+      <Card :dis-hover="true" shadow style="width:500px">
         <h3 slot="title">1.break和continue语句</h3>
         <div>
           <p>break和continue语句用于在循环语句中精准地控制代码的执行。break语句会立即退出循环，强制执行之后的代码。continue语句也是立即退出循环，但退出循环后会从循环的顶部继续执行。</p>
@@ -9,23 +9,26 @@
             <pre>
               <code>
                 //break语句
-                var num = 0
+                var num = 0;
                 for (var i = 1; i &lt; 10; i++) {
                   if (i % 2 === 0) {
-                    break //终止循环立即跳出
+                    //终止循环立即跳出
+                    break;
+                    //忽略下面的代码...
                   }
-                  num++
+                  num++;
                 }
                 num => 1
 
                 //continue语句
-                var num = 0
+                var num = 0;
                 for (var i = 1; i &lt; 10; i++) {
                   if (i % 2 === 0) {
-                    continue //跳转到下一次循环
-                    //忽略这里的代码
+                    //终止本次循环立即跳出,继续执行下一次循环
+                    continue;
+                    //忽略下面的代码...
                   }
-                  num++
+                  num++;
                 }
                 num => 5
 
@@ -41,14 +44,14 @@
           <div v-highlight>
             <pre>
               <code>
-                var num = 0
+                var num = 0;
                 outermost:
                 for (var i = 0; i &lt; 10; i++) {
                   for (var j = 0; j &lt; 10; j++) {
                     if (i == 5 && j == 5) {
-                      break outermost
+                      break outermost;
                     }
-                    num++
+                    num++;
                   }
                 }
                 num => 55

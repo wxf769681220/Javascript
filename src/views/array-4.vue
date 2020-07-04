@@ -1,17 +1,16 @@
 <template>
-  <div class="dom-8">
+  <div class="array-4">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:600px">
-        <h3 slot="title">1.DOM2和DOM3</h3>
+      <Card dis-hover shadow style="width:450px">
+        <h3 slot="title">1.Iterator构造函数</h3>
         <div>
-          <p>DOM1级主要定义了HTML和XML文档的底层结构。DOM2和DOM3级则在这个解构上引入了更多的交互能力。</p>
-          <!-- <div v-highlight>
+          <p></p>
+          <div v-highlight>
             <pre>
               <code>
-
               </code>
             </pre>
-          </div> -->
+          </div>
         </div>
       </Card>
     </div>
@@ -22,7 +21,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'dom-8',
+  name: 'array-4',
   created() {},
   components: {
     Card
@@ -31,7 +30,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.dom-8
+.array-4
   position: relative
   .layout-content
     display: flex
@@ -41,10 +40,4 @@ export default {
   align-self: flex-start !important
   margin-top: 20px
   margin-right: 20px
-.bg-gray
-  background: rgb(245, 245, 245)
-.bg-1
-  background: rgb(235, 247, 255)
-.bg-2
-  background: rgb(248, 248, 248)
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="object-1">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:450px">
+      <Card dis-hover shadow style="width:650px">
         <h3 slot="title">1.JavaScript中的对象</h3>
         <div>
           <ul class="menu">
@@ -11,9 +11,35 @@
             <li>自有属性：直接在对象中定义的属性。</li>
             <li>继承属性：在对象的原型对象中定义的对象。</li>
           </ul>
+          <div v-highlight>
+            <pre>
+              <code>
+                //Object的每个实例都具有以下属性和方法
+                //这些属性或方法都继承自Object.prototype默认原型对象
+                var o = new Object()
+
+                //保存着用于创建当前对象的函数
+                o.constructor
+
+                //用于检测给定的属性在当前对象的实例中是否存在（而不是在实例的原型中）
+                o.hasOwnProperty(propertyName)
+
+                //用于检测给定的属性是否能够使用for-in语句枚举（与hasOwnProperty一样）
+                o.propertyIsEnumerable(propertyName)
+
+                //用于检测传入的对象是否是当前对象的原型
+                Object.prototype.isPrototypeOf(o)
+
+                //返回对象的字符串表示
+                o.toLocaleString()
+                o.toString()
+                o.valueOf()
+              </code>
+            </pre>
+          </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:520px">
+      <Card dis-hover shadow style="width:500px">
         <h3 slot="title">2.创建对象</h3>
         <div>
           <p>创建一个对象最简单的方式：new 操作符 + Object （构造函数）；</p>

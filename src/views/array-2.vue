@@ -82,8 +82,8 @@
                 var arr = [1, 10, 2, 4, 3, 5]
                 arr.sort(function(a, b) {
                   return a - b
-                })    => ['ant', 'Bug', 'cat', 'Dog']
-                arr2  => ['ant', 'Bug', 'cat', 'Dog']
+                })    =>  [1, 2, 3, 4, 5, 10]
+                arr2  =>  [1, 2, 3, 4, 5, 10]
               </code>
             </pre>
           </div>
@@ -115,7 +115,7 @@
         <h3 slot="title">5.slice()</h3>
         <div>
           <p>返回指定数组的一个片段或子数组。（不会对原始数组进行修改）</p>
-          <ol>
+          <ol class="menu">
             <li>只有一个参数时，表示从起始位置截取到数组末尾最后一项（包含最后一项）。</li>
             <li>传入两个参数时，表示从起始位置截取结束位置（不包含结束位置项）。</li>
             <li>传入两个参数时，第二个参数必须大于第一个参数，否则返回空数组。（包含负值时先通过第四条在再进行比较）</li>
@@ -144,7 +144,7 @@
         <h3 slot="title">6.splice()</h3>
         <div>
           <p>基于当前数组进行插入和删除操作。它返回由被删除数组项所组成的数组。（对当前数组进行修改）</p>
-          <ol>
+          <ol class="menu">
             <li>只有一个参数时，表示从起始位置到数组末尾项全部删除。</li>
             <li>传入两个参数时，第一个参数表示起始位置；第二个参数表示要删除项的数量。</li>
             <li>传入三个或三个以上参数时，第一个参数表示起始位置；第二个参数表示要删除项的数量; 第三个参数表示要插入的项; 若要插入多个项, 则可以再插入第四个、第五个...等参数。</li>
@@ -174,7 +174,7 @@
       <Card dis-hover shadow style="width:540px">
         <h3 slot="title">7.push()和pop()</h3>
         <div>
-          <ol>
+          <ol class="menu">
             <li>push()方法：在数组的末尾添加一个或多个数组项，返回数组新的长度。</li>
             <li>pop()方法：删除数组的最后一个元素，减小数组长度，返回被删除的数组项。</li>
           </ol>
@@ -196,7 +196,7 @@
       <Card dis-hover shadow style="width:540px">
         <h3 slot="title">8.unshift()和shift()</h3>
         <div>
-          <ol>
+          <ol class="menu">
             <li>unshift()方法：在数组的头部添加一个或多个数组项，返回数组新的长度。</li>
             <li>shift()方法：删除数组的第一项，减小数组长度，返回被删除的数组项。</li>
           </ol>
@@ -219,7 +219,7 @@
         <h3 slot="title">9.indexOf()和lastIndexOf()</h3>
         <div>
           <p>indexOf()方法用于查找指定的数组项，返回匹配到的第一个数组项的索引，若没有找到则返回-1。lastIndexOf()方法与indexOf()方法用法一致，只不过它的查找方向从后向前。</p>
-          <ol>
+          <ol class="menu">
             <li>只有一个参数时，表示要查找的项在当前数组中的位置。</li>
             <li>传入两个参数时，第一个参数表示：要查找的项；第二个参数表示：起始位置。</li>
             <li>传入两个参数时，若第二个参数是负值，则可以通过数组length属性值加上负值来确定位置。</li>
@@ -269,7 +269,7 @@
       <Card dis-hover shadow style="width:540px">
         <h3 slot="title">10.数组的迭代方法</h3>
         <div>
-          <ul>
+          <ul class="menu">
             <li>every()方法：对数组中的每一项运行给定的函数，若函数对每一项都返回true，则返回true。</li>
             <li>some()方法：对数组中的每一项运行给定的函数, 若函数对任意一项返回true, 则返回true。</li>
             <li>filter()方法：对数组中的每一项运行给定的函数, 返回该函数返回true的项组成的数组。</li>
@@ -343,7 +343,7 @@
         <h3 slot="title">11.reduce()和reduceRight()</h3>
         <div>
           <p>reduce()方法：迭代数组中的所有项，返回一个最终值。函数返回任何值都会作为第一个参数自动传递给下一项。reduceRight()方法与reduce()方法用法相同，</p>
-          <ol>
+          <ol class="menu">
             <li>第一个参数表示：前一个值, 即数组第一项。</li>
             <li>第二个参数表示：当前值, 即数组第二项。</li>
             <li>第三个参数表示：当前循环次数。</li>
@@ -393,7 +393,7 @@
       <Card dis-hover shadow style="width:540px">
         <h3 slot="title">12.继承Object</h3>
         <div>
-          <ol>
+          <ol class="menu">
             <li>toString()方法：返回一个由每个数组项的字符串形式拼接起来的字符串，以逗号分隔。实际上会调用每个数组项的toString()方法。</li>
             <li>toLocaleString()方法：通常toString()方法返回一样的结果。区别：它会首先会检查每个数组项上是否存在toLocaleString()方法。若存在，则调用toLocaleString()方法；若没有，则调用toString()方法。</li>
             <li>valueOf()方法：返回数组对象本身。</li>

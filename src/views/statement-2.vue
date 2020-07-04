@@ -4,7 +4,7 @@
       <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">1.if语句</h3>
         <div>
-          <p>if语句是一种基本的控制语句。</p>
+          <p>if语句是一种基本的控制语句。只有当expression求值结果为true时，执行相应的statement</p>
           <div v-highlight>
             <pre>
               <code>
@@ -20,10 +20,9 @@
               </code>
             </pre>
           </div>
-          <p>只有当expression求值结果为true时，执行相应的statement。</p>
         </div>
       </Card>
-      <Card :dis-hover="true" shadow style="width:450px">
+      <Card :dis-hover="true" shadow style="width:480px">
         <h3 slot="title">2.switch语句</h3>
         <div>
           <p>switch语句也是一种基本的控制语句。</p>
@@ -41,7 +40,29 @@
                     statement3
                     break;
                   default:
+                    statement
+                }
+              </code>
+            </pre>
+          </div>
+          <p>每个case后面都添加一个break语句，可以避免同时执行多个case代码。若需要混合使用，最好在代码中添加注释，说明是有意省略了break关键字。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //当a=1,statement1和statement2都将被执行
+                //当a=2,则只执行statement2
+                switch (a) {
+                  case 1:
+                    /*合并两种情况*/
                     statement1
+                  case 2:
+                    statement2
+                    break;
+                  case 3:
+                    statement3
+                    break;
+                  default:
+                    statement
                 }
               </code>
             </pre>
@@ -50,14 +71,14 @@
           <div v-highlight>
             <pre>
               <code>
-                function convert(x) {
-                  switch (typeof x) {
-                    case 'string':
-                      return '"' + x + '"';
-                    case 'number':
-                      return x.toString(16);
+                function fn(a) {
+                  switch (a) {
+                    case 1:
+                      return 1;
+                    case 2:
+                      return 2;
                     default:
-                      return String(x);
+                      return 3;
                   }
                 }
               </code>
@@ -89,7 +110,10 @@
       <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">3.while语句</h3>
         <div>
-          <p>while语句是一种基本的循环语句。</p>
+          <p>
+            while语句是一种基本的循环语句。只有表达式的求值结果为true时，才会执行循环体。若表达式的求值结果永远是true，那么循环也永远不会结束，
+            因此在循环体中始终有一个与表达式的值相关联的变量来控制循环的结束。
+          </p>
           <div v-highlight>
             <pre>
               <code>
@@ -101,7 +125,6 @@
               </code>
             </pre>
           </div>
-          <p>只有表达式的求值结果为true时，才会执行循环体。若表达式的求值结果永远是true，那么循环也永远不会结束，因此在循环体中始终有一个与表达式的值相关联的变量来控制循环的结束。</p>
         </div>
       </Card>
       <Card :dis-hover="true" shadow style="width:450px">
@@ -155,9 +178,8 @@
               <code>
                 // 返回链表的最后一个节点对象
                 function tail(o) {
-                  //根据判断o.next是不是true来执行遍历
-                  for (; o.next; o = o.next) /* empty */ ;
-                  return o
+                  for (; o.next; o=o.next) /* empty */ ;
+                  return o;
                 }
               </code>
             </pre>

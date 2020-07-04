@@ -42,7 +42,7 @@
               </tr>
               <tr class="bg-1">
                 <td>~</td>
-                <td>按位求反</td>
+                <td>按位非</td>
                 <td>从右至左</td>
                 <td>1</td>
               </tr>
@@ -98,7 +98,7 @@
                 <td>比较运算符</td>
               </tr>
               <tr class="bg-2">
-                <td>instenceof</td>
+                <td>instanceof</td>
                 <td>检测对象类型</td>
                 <td>从左至右</td>
                 <td>2</td>

@@ -1,4 +1,5 @@
 const DataType1 = () => import('views/dataType-1')
+const DataType2 = () => import('views/dataType-2')
 
 const Operator1 = () => import('views/operator-1')
 const Operator2 = () => import('views/operator-2')
@@ -15,10 +16,12 @@ const ReferenceType4 = () => import('views/reference-type-4')
 const Object1 = () => import('views/object-1')
 const Object2 = () => import('views/object-2')
 const Object3 = () => import('views/object-3')
+const Object4 = () => import('views/object-4')
 
 const Array1 = () => import('views/array-1')
 const Array2 = () => import('views/array-2')
 const Array3 = () => import('views/array-3')
+const Array4 = () => import('views/array-4')
 
 const Function1 = () => import('views/function-1')
 const Function2 = () => import('views/function-2')
@@ -27,6 +30,9 @@ const Function4 = () => import('views/function-4')
 const Function5 = () => import('views/function-5')
 const Function6 = () => import('views/function-6')
 const Function7 = () => import('views/function-7')
+const Function8 = () => import('views/function-8')
+
+const HighFunction1 = () => import('views/high-function-1')
 
 const Bom1 = () => import('views/bom-1')
 const Bom2 = () => import('views/bom-2')
@@ -48,6 +54,7 @@ const DomEvent2 = () => import('views/dom-event-2')
 const DomEvent3 = () => import('views/dom-event-3')
 const DomEvent4 = () => import('views/dom-event-4')
 const DomEvent5 = () => import('views/dom-event-5')
+const DomEvent6 = () => import('views/dom-event-6')
 
 const Form1 = () => import('views/form-1')
 const Form2 = () => import('views/form-2')
@@ -69,8 +76,26 @@ const OfflineApp3 = () => import('views/offline-app-3')
 const Canvas1 = () => import('views/canvas-1')
 const Canvas2 = () => import('views/canvas-2')
 
+const Drag1 = () => import('views/drag-1')
+
+const Media1 = () => import('views/media-1')
+const Media2 = () => import('views/media-2')
+
 const Timer1 = () => import('views/timer-1')
-const ClientDetection1 = () => import('views/client-detection-1')
+const Api1 = () => import('views/api-1')
+const Api2 = () => import('views/api-2')
+const Api3 = () => import('views/api-3')
+const Api4 = () => import('views/api-4')
+const Api5 = () => import('views/api-5')
+const Api6 = () => import('views/api-6')
+
+const Client1 = () => import('views/client-1')
+const Client2 = () => import('views/client-2')
+const Client3 = () => import('views/client-3')
+
+const Practice1 = () => import('views/practice-1')
+const Practice2 = () => import('views/practice-2')
+const Practice3 = () => import('views/practice-3')
 
 const Supplement1 = () => import('views/supplement-1')
 
@@ -78,6 +103,10 @@ const routes = [
   {
     path: '/dataType-1',
     component: DataType1
+  },
+  {
+    path: '/dataType-2',
+    component: DataType2
   },
   {
     path: '/operator-1',
@@ -128,6 +157,10 @@ const routes = [
     component: Object3
   },
   {
+    path: '/object-4',
+    component: Object4
+  },
+  {
     path: '/array-1',
     component: Array1
   },
@@ -138,6 +171,10 @@ const routes = [
   {
     path: '/array-3',
     component: Array3
+  },
+  {
+    path: '/array-4',
+    component: Array4
   },
   {
     path: '/function-1',
@@ -166,6 +203,14 @@ const routes = [
   {
     path: '/function-7',
     component: Function7
+  },
+  {
+    path: '/function-8',
+    component: Function8
+  },
+  {
+    path: '/high-function-1',
+    component: HighFunction1
   },
   {
     path: '/bom-1',
@@ -240,6 +285,10 @@ const routes = [
     component: DomEvent5
   },
   {
+    path: '/dom-event-6',
+    component: DomEvent6
+  },
+  {
     path: '/form-1',
     component: Form1
   },
@@ -300,12 +349,68 @@ const routes = [
     component: Canvas2
   },
   {
+    path: '/drag-1',
+    component: Drag1
+  },
+  {
+    path: '/media-1',
+    component: Media1
+  },
+  {
+    path: '/media-2',
+    component: Media2
+  },
+  {
     path: '/timer-1',
     component: Timer1
   },
   {
-    path: '/client-detection-1',
-    component: ClientDetection1
+    path: '/api-1',
+    component: Api1
+  },
+  {
+    path: '/api-2',
+    component: Api2
+  },
+  {
+    path: '/api-3',
+    component: Api3
+  },
+  {
+    path: '/api-4',
+    component: Api4
+  },
+  {
+    path: '/api-5',
+    component: Api5
+  },
+  {
+    path: '/api-6',
+    component: Api6
+  },
+  {
+    path: '/client-1',
+    component: Client1
+  },
+  {
+    path: '/client-2',
+    component: Client2
+  },
+  {
+    path: '/client-3',
+    component: Client3
+  },
+  {
+    path: '/practice-1',
+    component: Practice1
+  },
+  {
+    path: '/practice-2',
+    component: Practice2
+  },
+  {
+    path: '/practice-3',
+    component: Practice3
   },
   {
     path: '/supplement-1',

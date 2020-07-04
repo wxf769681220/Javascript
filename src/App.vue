@@ -23,12 +23,13 @@
         </Header>
         <Layout>
           <Sider hide-trigger :style="{background: '#fff'}">
-            <Menu active-name="statement-1" theme="light" width="240px">
+            <Menu active-name="statement-1" theme="light" accordion="true" width="240px">
               <Submenu name="dataType">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>数据类型
                 </template>
                 <MenuItem name="dataType-1" to="/dataType-1">数据类型转换</MenuItem>
+                <MenuItem name="dataType-2" to="/dataType-2">数据类型检测</MenuItem>
               </Submenu>
               <Submenu name="operator">
                 <template slot="title">
@@ -59,8 +60,9 @@
                   <Icon type="ios-keypad"></Icon>对象
                 </template>
                 <MenuItem name="object-1" to="/object-1">对象及属性</MenuItem>
-                <MenuItem name="object-2" to="/object-2">OOP模式</MenuItem>
+                <MenuItem name="object-2" to="/object-2">面向对象的设计模式</MenuItem>
                 <MenuItem name="object-3" to="/object-3">序列化对象</MenuItem>
+                <MenuItem name="object-4" to="/object-4">代理对象</MenuItem>
               </Submenu>
               <Submenu name="array">
                 <template slot="title">
@@ -69,6 +71,7 @@
                 <MenuItem name="array-1" to="/array-1">数组概述</MenuItem>
                 <MenuItem name="array-2" to="/array-2">数组方法</MenuItem>
                 <MenuItem name="array-3" to="/array-3">类数组对象</MenuItem>
+                <MenuItem name="array-4" to="/array-4">迭代器</MenuItem>
               </Submenu>
               <Submenu name="function">
                 <template slot="title">
@@ -81,6 +84,13 @@
                 <MenuItem name="function-5" to="/function-5">继承</MenuItem>
                 <MenuItem name="function-6" to="/function-6">继承扩展</MenuItem>
                 <MenuItem name="function-7" to="/function-7">模块模式</MenuItem>
+                <MenuItem name="function-8" to="/function-8">函数相关方法</MenuItem>
+              </Submenu>
+              <Submenu name="high-function">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>高级函数
+                </template>
+                <MenuItem name="high-function-1" to="/high-function-1">1.高级函数</MenuItem>
               </Submenu>
               <Submenu name="bom">
                 <template slot="title">
@@ -112,17 +122,18 @@
                 <MenuItem name="dom-event-1" to="/dom-event-1">1.事件处理程序</MenuItem>
                 <MenuItem name="dom-event-2" to="/dom-event-2">2.事件对象</MenuItem>
                 <MenuItem name="dom-event-3" to="/dom-event-3">3.事件类型</MenuItem>
-                <MenuItem name="dom-event-4" to="/dom-event-4">4.事件类型-设备事件</MenuItem>
-                <MenuItem name="dom-event-5" to="/dom-event-5">5.事件委托</MenuItem>
+                <MenuItem name="dom-event-4" to="/dom-event-4">4.设备相关事件</MenuItem>
+                <MenuItem name="dom-event-5" to="/dom-event-5">5.模拟事件</MenuItem>
+                <MenuItem name="dom-event-6" to="/dom-event-6">6.事件委托</MenuItem>
               </Submenu>
               <Submenu name="form">
                 <template slot="title">
                   <Icon type="ios-analytics"></Icon>表单
                 </template>
-                <MenuItem name="form-1" to="/form-1">1.HTMLFormELement类型</MenuItem>
+                <MenuItem name="form-1" to="/form-1">1.Form类型</MenuItem>
                 <MenuItem name="form-2" to="/form-2">2.表单字段</MenuItem>
                 <MenuItem name="form-3" to="/form-3">3.表单序列化</MenuItem>
-                <MenuItem name="form-4" to="/form-4">4.富文本编辑</MenuItem>
+                <MenuItem name="form-4" to="/form-4">4.选择框、富文本编辑</MenuItem>
               </Submenu>
               <Submenu name="json">
                 <template slot="title">
@@ -159,11 +170,14 @@
                 <template slot="title">
                   <Icon type="ios-analytics"></Icon>原生拖放
                 </template>
+                <MenuItem name="drag-1" to="/drag-1">1.拖放事件</MenuItem>
               </Submenu>
               <Submenu name="media">
                 <template slot="title">
                   <Icon type="ios-analytics"></Icon>媒体元素
                 </template>
+                <MenuItem name="media-1" to="/media-1">1.&lt;audio>和&lt;video></MenuItem>
+                <MenuItem name="media-2" to="/media-2">2.自定义媒体播放器</MenuItem>
               </Submenu>
               <Submenu name="timer">
                 <template slot="title">
@@ -171,15 +185,36 @@
                 </template>
                 <MenuItem name="timer-1" to="/timer-1">超时和间歇调用</MenuItem>
               </Submenu>
-              <Submenu name="clientDetection">
+              <Submenu name="api">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>客户端检测
+                  <Icon type="ios-analytics"></Icon>新兴的API
                 </template>
-                <MenuItem name="clientDetection-1" to="/client-detection-1">检测方法</MenuItem>
+                <MenuItem name="api-1" to="/api-1">动画循环</MenuItem>
+                <MenuItem name="api-2" to="/api-2">地理定位</MenuItem>
+                <MenuItem name="api-3" to="/api-3">本地文件读取与上传</MenuItem>
+                <MenuItem name="api-4" to="/api-4">Web计时</MenuItem>
+                <MenuItem name="api-5" to="/api-5">Web Works</MenuItem>
+                <MenuItem name="api-6" to="/api-6">页面可见性</MenuItem>
+              </Submenu>
+              <Submenu name="client">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>客户端
+                </template>
+                <MenuItem name="client-1" to="/client-1">客户端检测</MenuItem>
+                <MenuItem name="client-2" to="/client-2">错误处理与调试</MenuItem>
+                <MenuItem name="client-3" to="/client-3">严格模式</MenuItem>
+              </Submenu>
+               <Submenu name="practice">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>最佳实践
+                </template>
+                <MenuItem name="practice-1" to="/practice-1">1.代码维护</MenuItem>
+                <MenuItem name="practice-2" to="/practice-2">2.性能提升</MenuItem>
+                <MenuItem name="practice-3" to="/practice-3">3.优化DOM交互</MenuItem>
               </Submenu>
               <Submenu name="supplement">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>番外篇
+                  <Icon type="ios-analytics"></Icon>知识点补充
                 </template>
                 <MenuItem name="supplement-1" to="/supplement-1">知识点补充</MenuItem>
               </Submenu>

@@ -1,8 +1,8 @@
 <template>
   <div class="dom-event-3">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:560px">
-        <h3 slot="title">1.load事件</h3>
+      <Card dis-hover shadow style="width:720px">
+        <h3 slot="title">1.load事件与DOMContentLoaded事件</h3>
         <div>
           <p>在页面完全加载后（包括所有的图像、javascript文件、css文件等外部资源），就会在window上面触发load事件。</p>
           <div v-highlight>
@@ -38,17 +38,42 @@
               </code>
             </pre>
           </div>
+          <p>DOMContentLoaded事件：在形成完整的DOM树之后就会触发。不必考虑图像、JavaScript文件、CSS文件和其他资源是否已经下载完毕。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //可以在window或document上添加该事件处理程序
+                //尽管该事件会冒泡到window上,但实际上它的目标是document
+                EventUtil.addHandler(document, "DOMContentLoaded", function(event) {
+                  //event
+                })
+              </code>
+            </pre>
+          </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:560px">
-        <h3 slot="title">2.unload事件</h3>
+      <Card dis-hover shadow style="width:650px">
+        <h3 slot="title">2.unload事件与beforeunload事件</h3>
         <div>
-          <p>文档被完全卸载后触发。利用这个事件最多的就是清除引用，以避免内存泄露。</p>
+          <p>unload事件：当文档被完全卸载后触发。利用这个事件最多的就是清除引用，以避免内存泄露。</p>
           <div v-highlight>
             <pre>
               <code>
                 EventUtil.addHandler(window, "unload", function() {
                   //...
+                })
+              </code>
+            </pre>
+          </div>
+          <p>beforeunload事件：在浏览器卸载页面时触发。让开发人员在页面被卸载前阻止这一行为。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                EventUtil.addHandler(window, "beforeunload", function (event) {
+                  event = EventUtil.getEvent(event)
+                  var message = "确定要离开吗？"
+                  event.returnValue = message
+                  return message
                 })
               </code>
             </pre>
@@ -147,30 +172,97 @@
           <div v-highlight>
             <pre>
               <code>
-                document.activeElement => 默认焦点元素body元素
+                var btn = document.getElementById("myBtn")
 
-                var btn1 = document.getElementById('myBtn1')
-                var btn2 = document.getElementById('myBtn2')
-
-                //设置btn1为当前页面的焦点
-                btn1.focus()
-
-                //btn1失去焦点时触发
-                EventUtil.addHandler(btn1, "blur", function(event) {
-                  alert('当前页面焦点：' + document.activeElement)
-                })
-
-                //btn2获得焦点时触发
-                EventUtil.addHandler(btn2, "focus", function(event) {
-                  alert('hi')
+                EventUtil.addHandler(btn, "click", function(event) {
+                  //event
                 })
               </code>
             </pre>
           </div>
         </div>
       </Card>
+      <Card dis-hover shadow style="width:600px">
+        <h3 slot="title">7.键盘与文本事件</h3>
+        <div>
+          <p>DOM3级事件中定义了3个键盘事件：（在用户通过文本框输入文本常用到）</p>
+          <ul class="menu">
+            <li>keydown：当用户按下键盘上的任意键时触发，若用户按住不放，会重复触发此事件。</li>
+            <li>keypress：当用户按下键盘上的字符键时触发（包括ESC键），若用户按住不放，会重复触发此事件。</li>
+            <li>keyup：当用户释放键盘上的键时触发。</li>
+          </ul>
+          <div v-highlight>
+            <pre>
+              <code>
+                var btn = document.getElementById('myBtn')
+
+                //先将焦点移至该元素上
+                btn.focus()
+
+                EventUtil.addHandler(btn, "keydown", function(event) {
+                  event = EventUtil.getEvent(event)
+                  //键名
+                  event.key
+                  //与ASCII码中对应小写字母或数字的编码相同
+                  event.keyCode
+                })
+
+                EventUtil.addHandler(btn, "keypress", function(event) {
+                  //event
+                })
+
+                EventUtil.addHandler(btn, "keyup", function(event) {
+                  //event
+                })
+              </code>
+            </pre>
+          </div>
+          <p>textInput事件：当用户在可编辑区中输入字符时触发该事件。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var input = document.getElementById('myInput')
+
+                //只有可编辑区才能触发噶事件
+                //只有用户按下能够输入实际字符的键才会触发
+                EventUtil.addHandler(input, "textInput", function(event) {
+                  event = EventUtil.getEvent(event)
+                  //用于保存用户输入的值
+                  event.data
+                })
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:750px">
+        <h3 slot="title">8.HTML DOM变动事件</h3>
+        <div>
+          <p>DOM2级变动事件能在DOM中的某个部分发生变化时给出提示。DOM2级事件中定义了如下变动事件：</p>
+          <ul class="menu">
+            <li>DOMSubtreeModified：DOM解构发生任何变化时触发。（这个事件在任何事件触发后都会触发）</li>
+            <li>DOMNodeInserted：在一个节点作为子节点被插入到另一个节点中时触发。</li>
+            <li>DOMNodeInsertedIntoDocument：在一个节点被直接插入文档或通过子树间接插入文档时触发。（在DOMNodeInserted事件之后触发）</li>
+            <li>DOMNodeRemoved：在节点在其父节点中被移除时触发。</li>
+            <li>DOMNodeRemovedFromDocument：在一个节点被直接从文档移除或通过子树间接从文档移除时触发。（在DOMNodeRemoved事件之后触发）</li>
+            <li>DOMAttrModified：特性被修改之后触发。</li>
+            <li>DOMCharacterDataModified：在文本节点值发生变化时触发。</li>
+          </ul>
+          <div v-highlight>
+            <pre>
+              <code>
+                //检测浏览器是否支持变动事件
+                var isSupported = document.implementation.hasFeature("MutationEvents", "2.0")
+                if (!isSupported) {
+                  alert("浏览器尚且不支持DOM变动事件!")
+                }
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
       <Card dis-hover shadow style="width:560px">
-        <h3 slot="title">7.剪切板事件</h3>
+        <h3 slot="title">8.剪切板事件</h3>
         <div>
           <p>剪切板的6个事件：</p>
           <ul class="menu">

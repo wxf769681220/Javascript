@@ -42,22 +42,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:450px">
-        <h3 slot="title">3.hashchange事件</h3>
-        <div>
-          <p>
-            户每次操作不一定会打开一个新的页面，因此"前进"和"后退"按钮就失去了作用，导致用户很难在不同的状态间切换。通过hashchange事件，
-            可以知道URL的参数什么时候发生了改变，什么时候有所反应。
-          </p>
-          <div v-highlight>
-            <pre>
-              <code>
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
-      <Card dis-hover shadow style="width:600px">
+      <Card dis-hover shadow style="width:680px">
         <h3 slot="title">4.pushState()方法</h3>
         <div>
           <ul class="menu">
@@ -78,8 +63,10 @@
               </code>
             </pre>
           </div>
-          <p>pushState()方法会创建新的历史状态，执行该方法后，浏览器后退按钮就被激活了。按下后退按钮，会触发window的popstate事件。popstate事件的事件对象有一个state属性，
-            这个属性就包含着当初以第一个参数传递给pushState()的状态对象。</p>
+          <p>
+            pushState()方法会创建新的历史状态，执行该方法后，浏览器后退按钮就被激活了。按下后退按钮，会触发window的popstate事件。popstate事件的事件对象有一个state属性，
+            这个属性就包含着当初以第一个参数传递给pushState()的状态对象。
+          </p>
           <div v-highlight>
             <pre>
               <code>

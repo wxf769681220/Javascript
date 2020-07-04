@@ -1,7 +1,7 @@
 <template>
   <div class="function-1">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:400px">
+      <Card dis-hover shadow style="width:520px">
         <h3 slot="title">1.函数声明（语句）</h3>
         <div>
           <p>函数声明具有函数声明提升的特性，即解析器会率先读取函数声明，并使其在执行任何代码之前可用。区别于函数表达式。</p>
@@ -19,7 +19,9 @@
           <div v-highlight>
             <pre>
               <code>
-                new Function('//函数体')
+                var fn = new Function('a', 'b', 'return a + b')
+
+                fn(1,2) => 3
               </code>
             </pre>
           </div>
@@ -40,7 +42,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:450px">
+      <Card dis-hover shadow style="width:470px">
         <h3 slot="title">2.函数表达式</h3>
         <div>
           <p>函数表达式不具有函数声明提升的特性，因此为了调用它，必须把它赋值给一个变量。（变量声明具有变量声明提升特性，但给变量赋值是不会被提前的。）</p>
@@ -70,7 +72,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:450px">
+      <Card dis-hover shadow style="width:470px">
         <h3 slot="title">3.自执行函数</h3>
         <div>
           <p>立即调用的函数表达式。自执行函数是某个一个值而不是一个引用，因此自执行函数不能通过函数名再调用。</p>
@@ -102,16 +104,17 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:530px">
-        <h3 slot="title">4.嵌套函数</h3>
+      <Card dis-hover shadow style="width:580px">
+        <h3 slot="title">4.嵌套函数(闭包)</h3>
         <div>
           <p>函数可以嵌套在其他函数里。</p>
           <div v-highlight>
             <pre>
               <code>
                 function fn() {
-                  function foo() {}
-                  return true
+                  return function() {
+                    //...
+                  }
                 }
               </code>
             </pre>
@@ -122,38 +125,82 @@
               <code>
                 var o = {
                   'name': function() {
-                    this === o => true
                     var self = this    //保存到变量self
 
-                    function foo() {
-                      self === o => true  //变量self指向外部函数this
-                      this === o => false //this指向全局对象
-                    }
-                    foo()
+                    ;(function foo() {
+                      self === o      => true  //变量self指向外部函数this
+                      this === o      => false
+                      this === window => true //this指向window
+                    }())
+
+                    return this
                   }
                 }
-                o.name()
+                o.name() => o
               </code>
             </pre>
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:530px">
-        <h3 slot="title">5.调用函数</h3>
+      <Card dis-hover shadow style="width:420px">
+        <h3 slot="title">5.作为值的函数</h3>
+        <div>
+          <p>函数不只是一种语法，也是值。也就是说可以将函数赋值给一个变量。存储在对象的属性或数组项中，或作为参数传给另一个函数。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //函数名是指向其引用类型的一个指针
+                //本质上就是一个变量
+                function person() {
+                  return true
+                }
+
+                //函数名赋值给另一个变量
+                var p = person
+
+                person() => true
+                p()      => true
+              </code>
+            </pre>
+          </div>
+          <p>函数作为参数传给另一个函数。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                function fn(o) {
+                  return o() //调用foo()函数
+                }
+
+                function foo() {
+                  return 100
+                }
+
+                fn(foo) => 100
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:500px">
+        <h3 slot="title">6.调用函数</h3>
         <div>
           <p>作为普通函数调用，一般不使用this关键字，不过this可以用来判断当前是否是严格模式。</p>
           <div v-highlight>
             <pre>
               <code>
-                strict()
                 function strict() {
                   return !this
                 }
-                strict() => false / true(严格模式)
+
+                if (strict()) {
+                  alert("javascript已启用严格模式!")
+                } else {
+                  alert("javascript使用非严格模式!")
+                }
               </code>
             </pre>
           </div>
-          <p>作为某个对象的方法调用。</p>
+          <p>函数作为某个对象的方法调用。</p>
           <div v-highlight>
             <pre>
               <code>
@@ -169,19 +216,17 @@
                   }
                 }
 
-                o.x() => o
-
-                //使用方括号
+                //调用方式
+                o.x()    => o
                 o['x']() => o
 
-                //当方法不需要返回值时，最好直接返回this。
-                //若在api设计中采用这种方式，则可以实现API的'链式调用'
+                //当对象某个方法不需要返回值时,最好直接返回this
+                //API设计中常采用这种方式来实现API的'链式调用'
                 o.x().y() => o
-                sum => 12
               </code>
             </pre>
           </div>
-          <p>作为构造函数调用。</p>
+          <p>函数作为构造函数调用。</p>
           <div v-highlight>
             <pre>
               <code>
@@ -214,45 +259,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:530px">
-        <h3 slot="title">6.作为值的函数</h3>
-        <div>
-          <p>函数不只是一种语法，也是值。也就是说可以将函数赋值给一个变量。存储在对象的属性或数组项中，或作为参数传给另一个函数。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                //函数名本身也是一个变量
-                function person() {
-                  return true
-                }
-
-                //函数名赋值给另一个变量
-                var p = person
-
-                person() => true
-                p()      => true
-              </code>
-            </pre>
-          </div>
-          <p>函数作为参数传给另一个函数。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                function f1(o) {
-                  return o()
-                }
-
-                function f2() {
-                  return 100
-                }
-
-                f1(f2) => 100
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
-      <Card dis-hover shadow style="width:530px">
+      <Card dis-hover shadow style="width:500px">
         <h3 slot="title">7.函数属性</h3>
         <div>
           <p>函数的length属性。</p>
@@ -260,6 +267,7 @@
             <pre>
               <code>
                 //检测实参个数与期望实参个数是否一致
+                //在严格模式访问arguments.callee会导致错误
                 function check(arg) {
                   var a = arg.length
                   var b = arg.callee.length
@@ -279,7 +287,7 @@
               </code>
             </pre>
           </div>
-          <p>函数的prototype属性（原型属性）。</p>
+          <p>函数的prototype（原型）属性。</p>
           <div v-highlight>
             <pre>
               <code>
@@ -294,56 +302,8 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:530px">
-        <h3 slot="title">8.函数方法</h3>
-        <div>
-          <p>call和apply方法。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                var o = {
-                  name: 'lee',
-                  age: 20
-                }
-
-                function fn() {
-                  return this.name + '-' + this.age
-                }
-
-                fn.call(o) => 'lee-20'
-              </code>
-            </pre>
-          </div>
-          <p>bind方法。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                //构造函数
-                function Fn() {
-                  //...
-                }
-
-                Fn.prototype //指向函数的原型对象
-              </code>
-            </pre>
-          </div>
-          <p>toString()方法。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                //构造函数
-                function Fn() {
-                  //...
-                }
-
-                Fn.prototype //指向函数的原型对象
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
-      <Card dis-hover shadow style="width:700px">
-        <h3 slot="title">9.函数对象检测</h3>
+      <Card dis-hover shadow style="width:680px">
+        <h3 slot="title">8.函数对象检测</h3>
         <div>
           <p>检测一个对象是否是函数对象。</p>
           <div v-highlight>

@@ -19,8 +19,10 @@
                 //字符串（必须使用双引号）
                 "hello world!"
 
-                //对象
-                //属性名必须使用双引号
+                //特殊值
+                null
+
+                //对象,属性名必须使用双引号
                 //属性名可以是空字符串,访问该属性时需要使用方括号表示法
                 //同一个对象中不应该出现同名属性
                 {
@@ -99,9 +101,10 @@
                   say: undefined
                 }
 
-                //第二个参数是数组，返回的结果字符串中只包含name和age
-                var res = JSON.stringify(data, ["name", "age"])
-                res => {"name":"lee","age":20}
+                //第二个参数是数组，返回的结果字符串中只包含出现的数组项
+                //值为undefined的数组项不会在结果集中
+                var res = JSON.stringify(data, ["name", "age", "say"])
+                res => "{"name":"lee","age":20}"
 
                 //第二个参数是函数，该函数接收两个参数：属性名和对应属性值
                 //若值为undefined，则在结果中忽略该属性
@@ -122,28 +125,28 @@
                 //它可以是数字值，表示每个级别缩进的空格数
                 //也可以是字符串：表示缩进的字符
                 //缩进空格数或是最大只能为10
-                var res = JSON.stringify(data, null, 4)
+                var res = JSON.stringify(data, null, 2)
                 res =>
-                {
+                  {
                     "name": "lee",
                     "age": 20,
                     "friends": [
-                        "tom",
-                        "Jerry",
-                        "Speike"
+                      "tom",
+                      "Jerry",
+                      "Speike"
                     ]
-                }
+                  }
 
                 var res = JSON.stringify(data, null, '-')
                 res =>
                 {
-                -"name": "lee",
-                -"age": 20,
-                -"friends": [
-                --"tom",
-                --"Jerry",
-                --"Speike"
-                -]
+                 -"name": "lee",
+                 -"age": 20,
+                 -"friends": [
+                 --"tom",
+                 --"Jerry",
+                 --"Speike"
+                 -]
                 }
               </code>
             </pre>

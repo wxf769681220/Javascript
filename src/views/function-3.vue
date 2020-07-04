@@ -1,6 +1,20 @@
 <template>
   <div class="function-3">
     <div class="layout-content">
+      <Card :dis-hover="true" shadow style="width:450px">
+        <h3 slot="title">1.执行环境与作用域</h3>
+        <div>
+          <ol class="menu">
+            <li>javascript中有两类执行环境：全局执行环境和局部执行环境（函数的执行环境）。</li>
+            <li>每个执行环境中都有一个与之关联的变量对象，保存着该执行环境中定义的所有变量和函数。</li>
+            <li>当代码在一个执行环境中运行时，会创建变量对象的一个作用域链。其作用是：保证对执行环境有权访问的所有变量和函数的有序访问。</li>
+            <li>作用域链的前端，始终是当前执行的代码所在执行环境的变量对象。若该执行环境是函数，则将其活动对象作为变量对象。活动对象最开始只包含一个arguments变量；
+              作用域链的下一个变量对象来自包含的外部环境；再下一次的变量对象则来自下一个包含环境；这样一直延续到全局执行环境，全局执行环境的变量对象始终是作用域链中的最后一个对象。
+            </li>
+            <li>内部环境通过作用域链可以访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。</li>
+          </ol>
+        </div>
+      </Card>
       <Card :dis-hover="true" shadow style="width:400px">
         <h3 slot="title">1.什么是闭包？</h3>
         <div>
@@ -25,18 +39,6 @@
               </code>
             </pre>
           </div>
-        </div>
-      </Card>
-      <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">2.作用域链</h3>
-        <div>
-          <ol class="menu">
-            <li>当某个函数被调用时，会创建一个执行环境及相应的作用域链。</li>
-            <li>arguments和其他形参的值来初始化函数的活动对象（变量对象）。</li>
-            <li>若是嵌套函数，在其作用域链中，外部活动对象始终处于第二位，外部的外部函数处于第三位，直到作为作用域链终点的全局执行环境。</li>
-            <li>在函数执行过程中，为读取和写入变量的值，需要在作用域链中查找变量（最终值非某个特定值）。</li>
-            <li>作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</li>
-          </ol>
         </div>
       </Card>
       <Card :dis-hover="true" shadow style="width:450px">

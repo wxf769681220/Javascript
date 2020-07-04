@@ -1,14 +1,8 @@
 <template>
-  <div class="client-detection-1">
+  <div class="high-function-1">
     <div class="layout-content">
       <Card dis-hover shadow style="width:400px">
-        <h3 slot="title">1.能力检测</h3>
-      </Card>
-      <Card dis-hover shadow style="width:400px">
-        <h3 slot="title">2.怪癖检测</h3>
-      </Card>
-      <Card dis-hover shadow style="width:400px">
-        <h3 slot="title">3.用户代理检测</h3>
+        <h3 slot="title">1.错误信息</h3>
       </Card>
     </div>
   </div>
@@ -18,7 +12,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'client-detection-1',
+  name: 'high-function-1',
   created() {},
   components: {
     Card
@@ -27,7 +21,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.client-detection-1
+.high-function-1
   position: relative
   .layout-content
     display: flex

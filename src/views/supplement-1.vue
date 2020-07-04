@@ -1,8 +1,38 @@
 <template>
   <div class="supplement-1">
     <div class="layout-content">
+      <Card dis-hover shadow style="width:520px">
+        <h3 slot="title">&lt;script>元素的属性</h3>
+        <div>
+          <p>defer属性规定是否对脚本执行进行延迟，直到页面加载为止。</p>
+          <p>async属性规定一旦脚本可用，则会异步执行。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                &lt;script src="example.js" defer="defer">&lt;/script>
+                &lt;script src="example.js" async="async">&lt;/script>
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:550px">
+        <h3 slot="title">javascript数值范围</h3>
+        <div>
+          <p>MIN_VALUE属性是JavaScript中可表示的最小的数（接近0 ，但不是负数）。它的近似值为 5 x 10<sup>-324</sup>。</p>
+          <p>MAX_VALUE属性是JavaScript中可表示的最大的数。它的近似值为 1.7976931348623157 x 10<sup>308</sup>。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                console.log(Number.MIN_VALUE)
+                console.log(Number.MAX_VALUE)
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
       <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">语法结构-可选的分号</h3>
+        <h3 slot="title">javascript保存数值范围</h3>
         <div>
           <p>如果当前语句和随后的非空格字符不能当做一个整体来解析的话，javascript就在当前语句行结束处填补分号。</p>
           <div v-highlight>
@@ -73,7 +103,6 @@
             <pre>
               <code>
                 const x = 10
-
                 x = 1 //抛出一个异常
               </code>
             </pre>
@@ -110,7 +139,7 @@
           </div>
         </div>
       </Card>
-        <Card :dis-hover="true" shadow style="width:650px">
+      <Card :dis-hover="true" shadow style="width:650px">
         <h3 slot="title">解构赋值</h3>
         <div>
           <p>解构赋值要求左侧与右侧的数组或对象直接量在语法上保持格式一致。</p>
@@ -174,7 +203,7 @@
 import { Card } from 'view-design'
 
 export default {
-  name: 'supplement-2',
+  name: 'supplement-1',
   components: {
     Card
   }

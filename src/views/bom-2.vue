@@ -181,6 +181,29 @@
           </div>
         </div>
       </Card>
+      <Card dis-hover shadow style="width:620px">
+        <h3 slot="title">6.hashchange事件</h3>
+        <div>
+          <p>
+            户每次操作不一定会打开一个新的页面，因此"前进"和"后退"按钮就失去了作用，导致用户很难在不同的状态间切换。通过hashchange事件，
+            可以知道URL的参数什么时候发生了改变，什么时候有所反应。
+          </p>
+          <p>HTML5新增hashchange事件，以便在URL的参数列表（及URL中"#"号后面的所有字符串）发生变化时通知开发人员。在Ajax应用中，经常利用URL参数列表来保存状态或导航信息。
+            必须把hashchange事件处理程序添加给window对象，然后URL参数列表只要有变化就会立即调用它。
+          </p>
+          <div v-highlight>
+            <pre>
+              <code>
+              EventUtil.addHandler(window, "hashchange", function (event) {
+                event = EventUtil.getEvent(event)
+                event.oldURL
+                event.newURL
+              })
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
     </div>
   </div>
 </template>

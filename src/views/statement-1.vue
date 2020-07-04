@@ -1,7 +1,7 @@
 <template>
   <div class="statement-1">
     <div class="layout-content">
-      <Card :dis-hover="true" shadow style="width:350px">
+      <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">1.表达式语句</h3>
         <div>
           <p>原始表达式：表达式的最小单位，包括：常量或直接量、关键字或保留字和变量（注意：undefined是一个全局变量，它不是一个关键字）。</p>
@@ -45,7 +45,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:350px">
+      <Card dis-hover shadow style="width:450px">
         <h3 slot="title">2.复合语句</h3>
         <div>
           <p>用花括号将多条语句括起来，形成一条复合语句。语句块结尾不需要分号。语句块没有作用域，即其中声明的变量并不是语句块私有的。</p>
@@ -87,7 +87,7 @@
           </div>
         </div>
       </Card>
-      <Card :dis-hover="true" shadow style="width:350px">
+      <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">4.声明语句</h3>
         <div>
           <p>var语句用来声明一个或多个变量。通过var声明的变量是无法通过delete删除的。</p>
@@ -97,7 +97,7 @@
                 var x = 1;
                 var y, z;
 
-                delete x
+                delete x;
                 x => 1
               </code>
             </pre>
@@ -107,13 +107,13 @@
             <pre>
               <code>
                 function fn() {
-                  return true
+                  return true;
                 }
 
-                delete fn
+                delete fn;
                 fn() => true
 
-                var x = fn
+                var x = fn;
                 x() => true
               </code>
             </pre>

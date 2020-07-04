@@ -1,7 +1,7 @@
 <template>
   <div class="form-3">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:750px">
+      <Card dis-hover shadow style="width:1200px">
         <h3 slot="title">1.表单序列化</h3>
         <div>
           <p>在javascript中，可以利用表单的type属性，连同name和value属性一起实现对表单的序列化。在表单提交期间，浏览器是如何将数据发送给服务器的：</p>
@@ -12,25 +12,77 @@
             <li>只发送勾选的复选框和单选框；</li>
             <li>多选选择框中的每个选中的值单独一个条目；</li>
             <li>&lt;select>元素的值，就是选中的&lt;option>元素的value特性的值。若&lt;option>元素没有value值，则是&lt;option>元素的文本值；</li>
-            <li>在用户单击提交按钮提交表单时，也会发送提交按钮。若用户不是通过单击提交按钮，像通过submit()方法实现表单提交的情况，
-              则不发送提交按钮（包括type为"image"的&lt;input>元素）。</li>
+            <li>
+              在用户单击提交按钮提交表单时，也会发送提交按钮。若用户不是通过单击提交按钮，像通过submit()方法实现表单提交的情况，
+              则不发送提交按钮（包括type为"image"的&lt;input>元素）。
+            </li>
           </ul>
           <div v-highlight>
             <pre>
               <code>
-                var form = document.forms
+                //表单序列化
+                function serialize(form, output) {
+                  var parts = output === "object" ? {} : [],
+                    field = null,
+                    i,
+                    len,
+                    j,
+                    optLen,
+                    option,
+                    optValue;
 
-                //通过数字索引值或name特性取得特定表单
-                form[0] === form['myForm'] => true
-
-                //表单字段长度
-                form[0].length => 3
-
-                //表单字段集合（HTMLFormControlsCollection类数组）
-                form[0].elements => HTMLCollection[input, input, input]
-
-                //查询表单某一个字段
-                form[0].elements[0] === form[0].elements['fname'] => true
+                  for (i = 0, len = form.elements.length; i &lt; len; i++) {
+                    field = form.elements[i];
+                    switch (field.type) {
+                      case "select-one":
+                      case "select-multiple":
+                        if (field.name.length) {
+                          for (j = 0, optLen = field.options.length; j &lt; optLen; j++) {
+                            option = field.options[j];
+                            if (option.selected) {
+                              optValue = "";
+                              if (option.hasAttribute) {
+                                optValue = (option.hasAttribute("value") ? option.value : option.text);
+                              } else {
+                                optValue = (option.attributes["value"].specified ? option.value : option.text);
+                              }
+                              //输出格式
+                              if (output === "object") {
+                                parts[field.name] = optValue
+                              } else {
+                                parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(optValue));
+                              }
+                            }
+                          }
+                        }
+                        break;
+                      case undefined:
+                      case "file":
+                      case "submit":
+                      case "reset":
+                      case "button":
+                        break;
+                      case "radio":
+                      case "checkbox":
+                        if (!field.checked) {
+                          break;
+                        }
+                      /*执行默认操作*/
+                      default:
+                        if (field.name.length) {
+                          if (output === "object") {
+                            parts[field.name] = field.value
+                          } else {
+                            parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+                          }
+                        }
+                    }
+                  }
+                  if (output === "object") {
+                    return parts;
+                  }
+                  return parts.join("&");
+                }
               </code>
             </pre>
           </div>

@@ -83,7 +83,7 @@
       <Card dis-hover shadow style="width:700px">
         <h3 slot="title">4.继承方法</h3>
         <div>
-          <ul>
+          <ul class="menu">
             <li>toString()：通常返回带有时区信息的日期和时间。</li>
             <li>toLocaleString()：会按照与浏览器设置的地区相适应的格式返回日期和时间。</li>
             <li>valueOf()：不返回字符串，而是返回日期的毫秒数。因此可以方便的使用比较操作符来进行日期比较。</li>
@@ -104,7 +104,7 @@
       <Card dis-hover shadow style="width:700px">
         <h3 slot="title">5.日期格式化方法</h3>
         <div>
-          <ul>
+          <ul class="menu">
             <li>toDateString()：以特定格式显示星期几、月、日和年。</li>
             <li>toTImeString()：以特定格式显示时、分、秒和时区。</li>
             <li>toLocaleDateString()：以特定地区格式显示星期几、月、日和年。</li>

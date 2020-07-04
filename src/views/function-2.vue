@@ -60,7 +60,7 @@
           </div>
         </div>
       </Card>
-      <Card :dis-hover="true" shadow style="width:600px">
+      <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">2.arguments对象的callee和caller属性</h3>
         <div>
           <p>callee属性指代当前正在执行的函数。caller非标准属性，指代当前正在执行的函数的函数。</p>
@@ -80,7 +80,7 @@
           </div>
         </div>
       </Card>
-      <Card :dis-hover="true" shadow style="width:600px">
+      <Card :dis-hover="true" shadow style="width:520px">
         <h3 slot="title">3.对象属性作为实参。</h3>
         <div>
           <p>如何忽略函数传入实参的顺序：对象属性作为实参。</p>
@@ -98,6 +98,71 @@
                 }
 
                 bridge({ y: 1, z: 2 }) => 5
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card :dis-hover="true" shadow style="width:500px">
+        <h3 slot="title">4.剩余参数与分布参数</h3>
+        <div>
+          <p>剩余参数语法。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //剩余参数
+                function sum(a, b, ...nums) {
+                  arguments.length => 5
+                  arguments[0] => 1
+                  arguments[4] => 5
+
+                  nums instanceof Array => true
+                  nums => [3,4,5]
+
+                  var total = a + b,
+                  i = 0,
+                  len = nums.length;
+
+                  while (i &lt; len) {
+                    total += nums[i]
+                    i++;
+                  }
+
+                  return total
+                }
+
+                sum(1, 2, 3, 4, 5) => 15
+              </code>
+            </pre>
+          </div>
+          <p>分布参数语法。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //分布参数
+                function sum(a, b, ...nums) {
+                  arguments.length => 5
+                  arguments[0] => 1
+                  arguments[4] => 5
+
+                  nums instanceof Array => true
+                  nums => [3,4,5]
+                }
+
+                sum(...[1, 2, 3, 4, 5])
+
+                /***************************************/
+                function sum(a, b, ...nums) {
+                  arguments.length => 6
+                  arguments[0] => 1
+                  arguments[1] => 1
+                  arguments[5] => 5
+
+                  nums instanceof Array => true
+                  nums => [2,3,4,5]
+                }
+
+                sum(1, ...[1, 2, 3, 4, 5])
               </code>
             </pre>
           </div>

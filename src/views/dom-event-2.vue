@@ -146,8 +146,8 @@
                     return event.target || event.srcElement //IE
                   },
                   preventDefault: function(event) {
-                    if (preventDefault) {
-                      preventDefault()
+                    if (event.preventDefault) {
+                      event.preventDefault()
                     } else {
                       event.returnValue = false //IE
                     }
