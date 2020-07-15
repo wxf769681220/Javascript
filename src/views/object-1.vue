@@ -37,6 +37,22 @@
               </code>
             </pre>
           </div>
+          <p>对象的类属性是一个字符串，用以表示对象的类型信息。通过对象的默认的toString()方法，返回如下这种格式字符串：</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //"[object class]"
+
+                /****************/
+                var obj = {}
+
+                obj.toString() => "[object Object]"
+
+                //间接调用Function.call，再截取字符串
+                Object.prototype.toString.call(obj).slice(8, -1) => "Object"
+              </code>
+            </pre>
+          </div>
         </div>
       </Card>
       <Card dis-hover shadow style="width:500px">
@@ -73,7 +89,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:520px">
+      <Card dis-hover shadow style="width:620px">
         <h3 slot="title">3.对象属性类型</h3>
         <div>
           <ul class="menu">
@@ -82,6 +98,37 @@
             <li>为了表示特性是内部值，通常将它们放在双括号中, 如：[[Enumerable]]。</li>
             <li>ECMAScript 中有两种属性：数据属性和访问器属性。</li>
           </ul>
+          <div v-highlight>
+            <pre>
+              <code>
+                //for-in语句：遍历对象上所有可枚举的属性
+                //无论是实例属性还是原型属性
+                for (var p in window) {
+                  //...
+                }
+
+                //获取对象上所有可枚举的属性，
+                //返回对象属性名组成的数组
+                Object.keys(obj)
+
+                //hasOwnProperty()方法：检测属性存在于实例中还是原型中
+                //若存在于实例中，则返回true
+                num = 1
+                window.hasOwnProperty("num") => true
+
+                //in操作符：检测给定属性能否在实例或是原型中找到
+                num = 1
+                "num" in window => true
+
+                //结合hasOwnProperty()与in操作符
+                //下面函数只有在属性存在于原型中时才会返回true
+                function hasPrototypeProperty(object, name) {
+                  return !object.hasOwnProperty(name) && (name in object);
+                }
+
+              </code>
+            </pre>
+          </div>
         </div>
       </Card>
       <Card dis-hover shadow style="width:650px">
@@ -160,6 +207,36 @@
                 myName.enumerable   =>false
                 myName.get          =>function
                 myName.set          =>function
+              </code>
+            </pre>
+          </div>
+          <p>定义访问器属性最简单的方法是：使用对象直接量语法的一种扩展写法：</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var person = {
+                  username: "alex",
+                  age: 24,
+                  get a() {
+                    return this.username
+                  },
+                  set a(value) {
+                    if (value > 2000) {
+                      this.age = value - 2000
+                    }
+                  },
+                  //b是只读访问器属性，因为它只有getter方法
+                  get b() {
+                    return this.age
+                  }
+                }
+
+                //写入属性值
+                person.a = 2019
+
+                person.age => 19
+                person.a   => "alex"
+                person.b   => 19
               </code>
             </pre>
           </div>

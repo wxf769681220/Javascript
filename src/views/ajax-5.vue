@@ -1,20 +1,28 @@
 <template>
   <div class="ajax-5">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:560px">
+      <Card dis-hover shadow style="width:650px">
         <h3 slot="title">1.图像Ping</h3>
         <div>
           <p>图像Ping最常用于跟踪用户点页面或动态广告曝光次数。我们将图片的src属性指向请求的地址，通过监听load和error事件，就能知道响应什么时候接受了，响应的数据可以是任意内容，但通常是像素图或204响应。</p>
           <div v-highlight>
             <pre>
               <code>
-                var btn = document.getElementById("btn")
-                btn.onclick = function(){
-                  var img = new Image()
-                  img.onload = img.onerror = function(obj){
-                    alert("done")
-                  }
-                  img.src = "http://www.baidu.com/test?name=alex"
+                //使用图像PING技术
+                function logError(sev, msg) {
+                  //任何浏览器都支持Image对象
+                  var img = new Image();
+
+                  //可以写入相对路径或绝对路径（避免跨域限制）
+                  img.src="example.php?sev=" + encodeURIComponent(sev) + "&msg=" + encodeURIComponent(msg);
+                }
+
+                //将错误信息记录到服务器
+                try {
+                  //可能会导致错误的代码
+                }
+                catch(error) {
+                  logError("nonfatal", "failed：" + error.message);
                 }
               </code>
             </pre>
@@ -241,7 +249,7 @@
                   //在成功建立连接时触发
                 }
 
-                socket.onerror = function(event) {
+                socket.onerror = function() {
                   //在发生错误时触发,连接不能持续
                 }
 

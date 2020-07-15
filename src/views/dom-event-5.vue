@@ -1,7 +1,7 @@
 <template>
   <div class="dom-event-5">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:400px">
+      <Card dis-hover shadow style="width:500px">
         <h3 slot="title">1.模拟事件</h3>
         <div>
           <ul class="menu">
@@ -11,7 +11,7 @@
           </ul>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:750px">
+      <Card dis-hover shadow style="width:720px">
         <h3 slot="title">2.DOM中模拟事件</h3>
         <div>
           <p>可以在document对象上使用createEvent()方法创建event对象。该方法接收一个表示要创建的事件类型的字符串。该字符串可以是下列几种：</p>
@@ -44,11 +44,13 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:750px">
+      <Card dis-hover shadow style="width:720px">
         <h3 slot="title">3.自定义DOM事件（尚未得到支持）</h3>
         <div>
-          <p>自定义事件不是由DOM原生触发的，它的目的是让开发人员创建自己的事件。创建自定义事件可以调用createEvent("CustomEvent")。
-            返回的对象有一个initCustomEvent()方法，该方法接收以下4各参数：</p>
+          <p>
+            自定义事件不是由DOM原生触发的，它的目的是让开发人员创建自己的事件。创建自定义事件可以调用createEvent("CustomEvent")。
+            返回的对象有一个initCustomEvent()方法，该方法接收以下4各参数：
+          </p>
           <ul class="menu">
             <li>type（字符串）：表示触发的事件类型。</li>
             <li>bubbles（布尔值）：表示事件是否应该冒泡。</li>
@@ -69,6 +71,87 @@
                 EventUtil.addHandler(btn, "MyEvent", function(event) {
                   //event
                 })
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:720px">
+        <h3 slot="title">4.非DOM代码中自定义事件</h3>
+        <div>
+          <p>事件与DOM交互是最常见的方式，但也可以通过实现自定义事件应用于非DOM代码中。思路是：创建一个用于管理事件的对象，让其他对象监听那些事件。基本模式：</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //构造函数
+                function EventTarget() {
+                  //用于储存事件处理程序
+                  this.handlers = {};
+                }
+
+                EventTarget.prototype = {
+                  constructor: EventTarget,
+
+                  //用于注册给定类型事件的事件处理程序
+                  //它接收两个参数：事件类型和处理该事件的函数
+                  addHandler: function (type, handler) {
+                    if (typeof this.handlers[type] === "undefined") {
+                      this.handlers[type] = [];
+                    }
+                    this.handlers[type].push(handler)
+                  },
+
+                  //触发一个事件
+                  fire: function (event) {
+                    if (!event.target) {
+                      event.target = this
+                    }
+                    if (this.handlers[event.type] instanceof Array) {
+                      var handlers = this.handlers[event.type];
+                      for (var i = 0, len = handlers.length; i &lt; len; i++) {
+                        handlers[i](event)
+                      }
+                    }
+                  },
+
+                  //用于注销某个事件类型的事件处理程序
+                  removeHandler: function (type, handler) {
+                    if (this.handlers[type] instanceof Array) {
+                      var handlers = this.handlers[type];
+                      for (var i = 0, len = handlers.length; i &lt; len; i++) {
+                        if (handlers[i] === handler) {
+                          break;
+                        }
+                      }
+                      handlers.splice(i, 1)
+                    }
+                  }
+                }
+              </code>
+            </pre>
+          </div>
+          <p>使用EventTarget类型的自定义事件。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //事件处理程序（回调函数）
+                function handlerMessage(event) {
+                  console.log(event.myMessage)
+                }
+
+                var target = new EventTarget()
+
+                //添加事件，并绑定事件处理程序
+                target.addHandler("massage", handlerMessage);
+
+                //触发事件，并调用事件处理程序
+                target.fire({type: "massage", myMessage: "hello world!"});
+
+                //移除事件处理程序
+                target.removeHandler("massage", handlerMessage);
+
+                //再次触发事件，此时应没有处理程序了
+                target.fire({type: "massage", myMessage: "hello world!"});
               </code>
             </pre>
           </div>

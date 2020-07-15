@@ -158,7 +158,7 @@
         <h3 slot="title">3.bind()方法</h3>
         <div>
           <ul class="menu">
-            <li>bind()方法创建一个新函数。</li>
+            <li>ECMAScript为所有函数定义了一个bind()方法，该方法创建一个新函数。</li>
             <li>这个新函数的this被指定为bind()的第一个参数。而其余参数将作为新函数的参数，供调用时使用。</li>
             <li>返回一个原函数的拷贝，并拥有指定的this值和初始参数。</li>
           </ul>
@@ -198,7 +198,7 @@
                   }
                 }
 
-                //将一个方法从对象中拿出来，然后再调用
+                //将对象的一个方法单独拿出来，然后再调用
                 //由于函数是在全局作用域中调用的,因此函数中的this指向的window
                 var x = obj.getColor
                 x() => "red"
@@ -206,6 +206,33 @@
                 //创建绑定函数
                 var y = x.bind(obj)
                 y() => "green"
+              </code>
+            </pre>
+          </div>
+          <p>自定义bind()方法，它接收一个函数和一个环境，并返回一个在给定环境中调用给定函数的函数，并且将所有参数原封不动的传递过去。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //自定义bind()方法
+                function bind(fn, context) {
+                  return function() {
+                    return fn.apply(context, arguments);
+                  }
+                }
+
+                var person = {
+                  age: 24,
+                  say: function(name) {
+                    return name + this.age;
+                  }
+                }
+
+                var obj = {
+                  age: 20
+                }
+
+                var x = bind(person.say, obj)
+                x("alex") => "alex20"
               </code>
             </pre>
           </div>

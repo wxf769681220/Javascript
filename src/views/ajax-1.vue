@@ -1,8 +1,35 @@
 <template>
   <div class="ajax-1">
     <div class="layout-content">
+      <Card dis-hover shadow style="width:500px">
+        <h3 slot="title">1.JS如何实现异步操作？</h3>
+        <div>
+          <p>JS的事件循环机制(Event Loop)：</p>
+          <ul class="menu">
+            <li>当JS解析执行时，会被引擎分为两类任务，同步任务（synchronous）和异步任务（asynchronous）。</li>
+            <li>对于同步任务来说，会被推到执行栈按顺序去执行这些任务。</li>
+            <li>对于异步任务来说，会被放到一个任务队列（task queue）里等待JS引擎去执行。</li>
+            <li>当执行栈中的所有同步任务完成后，JS引擎才会去任务队列里查看是否有任务存在，若存在，则将任务放到执行栈中去执行。</li>
+            <li>当执行栈中的任务被清空之后，JS引擎会再次进入任务队列里查看是否有任务存在。</li>
+            <li>这种循环检查的机制，就叫做事件循环机制。</li>
+          </ul>
+          <div v-highlight>
+            <pre>
+              <code>
+                /*
+                  常见的异步操作：
+                  1：回调函数
+                  2: 定时器
+                  3: 事件处理程序
+                  4: promiss
+                */
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
       <Card dis-hover shadow style="width:800px">
-        <h3 slot="title">1.XMLHttpRequest对象</h3>
+        <h3 slot="title">2.XMLHttpRequest对象</h3>
         <div>
           <p>Ajax技术，即能够通过异步的方式，无需刷新页面即可从服务器获取数据。Ajax 技术的核心是XMLHttpRequest对象，简称XHR。</p>
           <div v-highlight>
@@ -36,7 +63,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:700px">
-        <h3 slot="title">2.XHR的用法</h3>
+        <h3 slot="title">3.XHR的用法</h3>
         <div>
           <p>open()方法，它接收三个参数：要发送请求的类型（get、post等）、请求URL和表示是否异步发送请求布尔值。该方法并不会真正的发送请求，而只是启动一个请求已备发送。</p>
           <p>send()方法，它接收一个参数，即要作为请求主体发送的数据。如果不需要通过请求主体发送数据，则可传入null。调用send()方法之后，请求就会被派发到服务器中。</p>

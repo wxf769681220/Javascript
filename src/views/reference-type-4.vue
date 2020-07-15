@@ -33,42 +33,8 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:750px">
-        <h3 slot="title">2.URI编码方法</h3>
-        <div>
-          <p>
-            global对象的encodeURI和encodeURIComponent()方法可以对URI(通用资源标识符)进行编码。有效的URI中不能包含某些字符，如空格。这两个方法
-            就可以对URI进行编码，他们使用特殊的utf-8编码替代无效的字符，从来让浏览器能够接受和理解。
-          </p>
-          <div v-highlight>
-            <pre>
-              <code>
-                var uri = 'https://www.baidu.com/pag e1#start'
-
-                //对整个URI进行编码，
-                //并且不会对本身属于URI的特殊字符进行编码，如：冒号、正斜杠、问号和井字号
-                encodeURI(uri) => https://www.baidu.com/pag%20e1#start
-
-                //对URI中的某一片段进行编码，
-                //会对URI任何非标准字符进行编码
-                encodeURIComponent(uri) => https%3A%2F%2Fwww.baidu.com%2Fpag%20e1%23start
-              </code>
-            </pre>
-          </div>
-          <p>encodeURI()和encodeURIComponent()相应的两个解码方法分别是：decodeURI()和decodeURIComponent()。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                decodeURI('https://www.baidu.com/pag%20e1#start')
-
-                decodeURIComponent('https%3A%2F%2Fwww.baidu.com%2Fpag%20e1%23start')
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
       <Card dis-hover shadow style="width:550px">
-        <h3 slot="title">3.eval()方法</h3>
+        <h3 slot="title">2.eval()方法</h3>
         <div>
           <p>eval()方法就像一个完整的javascript解析器，它接收一个参数，即要执行的代码字符串。</p>
           <div v-highlight>
@@ -102,7 +68,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:450px">
-        <h3 slot="title">4.1Math对象</h3>
+        <h3 slot="title">3.1Math对象</h3>
         <div>
           <p>Math对象的属性：数学计算中可能用到的特殊值。</p>
           <table class="table-bordered">
@@ -198,7 +164,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:450px">
-        <h3 slot="title">4.2.max()和min()方法</h3>
+        <h3 slot="title">3.2.max()和min()方法</h3>
         <div>
           <p>接收任何数量的参数，确定数值中的最大值或最小值。</p>
           <div v-highlight>
@@ -223,7 +189,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:500px">
-        <h3 slot="title">4.3.舍入方法</h3>
+        <h3 slot="title">3.3.舍入方法</h3>
         <div>
           <ul class="menu">
             <li>Math.ceil()：向上舍入，数值舍入为最近的整数。</li>
@@ -252,7 +218,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:650px">
-        <h3 slot="title">4.4.random()方法</h3>
+        <h3 slot="title">3.4.random()方法</h3>
         <div>
           <p>random()方法始终返回大于等于0小于1的随机数。</p>
           <div v-highlight>

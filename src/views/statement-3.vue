@@ -181,13 +181,19 @@
       <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">6.debugger语句</h3>
         <div>
+          <p>debugger语句用来产生一个断点，javascript代码会在断点的位置停止执行。这时可以使用浏览器的网页调试器可以输出变量的值，检查调用栈等。debugger语句不会启动调试器，
+            只有在调试器已经运行中，这条语句才会真正产生一个断点。
+          </p>
           <div v-highlight>
             <pre>
               <code>
-                function fn(a) {
-                  if (a === undefined) debugger
-                  //...
-                }
+                var x = 1;
+                var y = x + 1;
+                debugger;
+
+                //若开启调试器，下面代码不会被运行
+                //若未开启调试器，则会忽略debugger语句，代码会继续执行
+                console.log(y)
               </code>
             </pre>
           </div>

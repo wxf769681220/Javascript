@@ -31,8 +31,7 @@ const Function5 = () => import('views/function-5')
 const Function6 = () => import('views/function-6')
 const Function7 = () => import('views/function-7')
 const Function8 = () => import('views/function-8')
-
-const HighFunction1 = () => import('views/high-function-1')
+const Function9 = () => import('views/function-9')
 
 const Bom1 = () => import('views/bom-1')
 const Bom2 = () => import('views/bom-2')
@@ -68,6 +67,7 @@ const Ajax2 = () => import('views/ajax-2')
 const Ajax3 = () => import('views/ajax-3')
 const Ajax4 = () => import('views/ajax-4')
 const Ajax5 = () => import('views/ajax-5')
+const Ajax6 = () => import('views/ajax-6')
 
 const OfflineApp1 = () => import('views/offline-app-1')
 const OfflineApp2 = () => import('views/offline-app-2')
@@ -77,11 +77,14 @@ const Canvas1 = () => import('views/canvas-1')
 const Canvas2 = () => import('views/canvas-2')
 
 const Drag1 = () => import('views/drag-1')
+const Drag2 = () => import('views/drag-2')
 
 const Media1 = () => import('views/media-1')
 const Media2 = () => import('views/media-2')
 
 const Timer1 = () => import('views/timer-1')
+const Timer2 = () => import('views/timer-2')
+
 const Api1 = () => import('views/api-1')
 const Api2 = () => import('views/api-2')
 const Api3 = () => import('views/api-3')
@@ -92,6 +95,8 @@ const Api6 = () => import('views/api-6')
 const Client1 = () => import('views/client-1')
 const Client2 = () => import('views/client-2')
 const Client3 = () => import('views/client-3')
+const Client4 = () => import('views/client-4')
+const Client5 = () => import('views/client-5')
 
 const Practice1 = () => import('views/practice-1')
 const Practice2 = () => import('views/practice-2')
@@ -209,8 +214,8 @@ const routes = [
     component: Function8
   },
   {
-    path: '/high-function-1',
-    component: HighFunction1
+    path: '/function-9',
+    component: Function9
   },
   {
     path: '/bom-1',
@@ -329,6 +334,10 @@ const routes = [
     component: Ajax5
   },
   {
+    path: '/ajax-6',
+    component: Ajax6
+  },
+  {
     path: '/offline-app-1',
     component: OfflineApp1
   },
@@ -353,6 +362,10 @@ const routes = [
     component: Drag1
   },
   {
+    path: '/drag-2',
+    component: Drag2
+  },
+  {
     path: '/media-1',
     component: Media1
   },
@@ -363,6 +376,10 @@ const routes = [
   {
     path: '/timer-1',
     component: Timer1
+  },
+  {
+    path: '/timer-2',
+    component: Timer2
   },
   {
     path: '/api-1',
@@ -399,6 +416,14 @@ const routes = [
   {
     path: '/client-3',
     component: Client3
+  },
+  {
+    path: '/client-4',
+    component: Client4
+  },
+  {
+    path: '/client-5',
+    component: Client5
   },
   {
     path: '/practice-1',

@@ -476,7 +476,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:500px">
+      <Card dis-hover shadow style="width:550px">
         <h3 slot="title">12.delete操作符</h3>
         <p>delete操作符常用来删除对象属性。</p>
         <div>
@@ -487,7 +487,7 @@
               </code>
             </pre>
           </div>
-          <p>delete操作符不能用来删除变量。</p>
+          <p>delete操作符不能用来删除全局变量。</p>
           <div v-highlight>
             <pre>
               <code>
@@ -496,9 +496,75 @@
                 x => 1
 
                 //未声明的变量
+                //可以看做是定义在window上的y属性，
+                //因此可以使用delete删除
                 y = 10
                 delete y => true （严格模式下抛出SyntaxError错误）
-                y => //not undefined error
+                y => //error
+              </code>
+            </pre>
+          </div>
+          <p>delete操作符只能删除实例中属性（包括继承而来的），不能删除原型中的属性。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                function Person() {
+                  this.age = 20
+                }
+
+                Person.prototype.say = 200
+
+                var p = new Person()
+
+                //实例属性可以被删除
+                delete p.age => true
+                p.age => undefined
+
+                //原型属性不可以被删除
+                delete say => true (注意：这里依然返回的是true)
+                p.say => 200
+
+                /*********** 继承属性 ************/
+                function Child() {
+                  Person.call(this)
+                }
+
+                var p = new Child()
+
+                //继承实例属性可以删除
+                delete p.age => true
+                p.age => undefined
+
+                //原型链继承
+                Child.prototype = new Person()
+
+                var p = new Child()
+
+                delete p.age => true
+                //注意：实际上实例中的age属性已被删除
+                //这里访问的是原型上的同名属性age属性
+                p.age => 20
+
+                //继承而来的原型属性不可被删除
+                delete say => true
+                p.say => 200
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:500px">
+        <h3 slot="title">13.in操作符</h3>
+        <div>
+          <p>in操作符可以用于检测对象属性，也可以用于检测数组元素。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //检测对象上是否存在某个属性
+                property in Object
+
+                //检测数组给定的索引位置上是否存在元素
+                index in Array
               </code>
             </pre>
           </div>

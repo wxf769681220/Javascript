@@ -162,6 +162,64 @@
           </table>
         </div>
       </Card>
+      <Card dis-hover shadow style="width:550px">
+        <h3 slot="title">2.运算符的结合性</h3>
+        <p>从左到右结合，如：</p>
+        <div>
+          <div v-highlight>
+            <pre>
+              <code>
+                var total = x + y + z
+
+                //等价于
+                var total = ((x+y) + z)
+              </code>
+            </pre>
+          </div>
+          <p>从右到左结合，如：一元运算符、三元运算符和赋值运算符。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var x = ~-y       //等价于：var x = ~(-y)
+
+                var y = x = z = a //等价于：var y = (x=(z=a))
+
+                a?b:c?d:e?f:g     //等价于：a?b:(c?d:(e?f:g))
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:550px">
+        <h3 slot="title">3.运算顺序</h3>
+        <p>运算符的优先级和结合性规定了它们在复杂的表达式中的运算顺序。在Javascript中总是严格的按照从左到右的顺序来计算表达式的。</p>
+        <div>
+          <div v-highlight>
+            <pre>
+              <code>
+                //首先计算表达式total，再计算x、y和z
+                //然后计算y*z，加上x，赋值给变量total
+                var total = x + y * z
+
+                //先通过从左到右计算各个表达式，
+                //再通过结合性得到最终结果
+              </code>
+            </pre>
+          </div>
+          <p>递增递减运算符：</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var i = 3;
+                var k = i++ + i++;
+
+                k => 7 （3+(3+1)）
+                i => 5
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
     </div>
   </div>
 </template>

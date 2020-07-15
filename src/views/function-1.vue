@@ -305,13 +305,55 @@
       <Card dis-hover shadow style="width:680px">
         <h3 slot="title">8.函数对象检测</h3>
         <div>
-          <p>检测一个对象是否是函数对象。</p>
+          <p>检测对象具体类型。</p>
           <div v-highlight>
             <pre>
               <code>
-                //类似于isArray()
-                function isFunction(a) {
-                  return Object.prototype.toString.call(a) === "[object Function]"
+                //是否是一个函数
+                function isFunction(o) {
+                  return Object.prototype.toString.call(o) === "[object Function]"
+                }
+
+                //是否是一个数组，类似于Array.isArray()
+                function isArray(o) {
+                  return Object.prototype.toString.call(o) === "[object Array]"
+                }
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:480px">
+        <h3 slot="title">9.回调函数</h3>
+        <div>
+          <p>函数A指针(引用地址)作为参数传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //回调函数
+                function A() {
+                  return 1
+                }
+
+                function B(a) {
+                  return a() + 2
+                }
+
+                B(A) => 3
+              </code>
+            </pre>
+          </div>
+          <p>如果是匿名函数，就叫做匿名回调函数。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //匿名回调函数
+                B(function() {
+                  return 1
+                }) => 3
+
+                function B(callback) {
+                  return callback() + 2
                 }
               </code>
             </pre>

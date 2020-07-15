@@ -1,7 +1,7 @@
 <template>
   <div class="function-5">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:720px">
+      <Card dis-hover shadow style="width:500px">
         <h3 slot="title">1.原型链实现继承</h3>
         <div>
           <p>面向对象语言都支持两种继承方式：接口继承和实现继承；ECMAScript 只支持实现继承，继承主要依靠原型链来实现。</p>
@@ -17,7 +17,7 @@
           </ul>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:560px">
+      <Card dis-hover shadow style="width:520px">
         <h3 slot="title">2.原型链的基本模式</h3>
         <div>
           <p>让一个原型对象等于另一个类型的实例。</p>
@@ -83,7 +83,7 @@
           </div>
         </div>
       </Card>
-      <Card dis-hover shadow style="width:560px">
+      <Card dis-hover shadow style="width:520px">
         <h3 slot="title">3.原型链继承的缺陷</h3>
         <div>
           <ul class="menu">

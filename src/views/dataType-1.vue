@@ -145,7 +145,7 @@
           </table>
         </div>
       </Card>
-      <Card :dis-hover="true" shadow style="width:450px">
+      <Card :dis-hover="true" shadow style="width:620px">
         <h3 slot="title">2.显示类型转换</h3>
         <div>
           <p>显示类型最简单的方法：Boolean()、Number()、String()或Object()函数。</p>
@@ -157,10 +157,15 @@
                 String(null)  => 'null'
 
                 //Object根据传入的参数类型决定
-                Object(false) => new Boolean(false)
-                Object('')    => new String('')
-                Object(1)     => new Number(1)
-                Object({})    => new Object()
+                Object(false)               => new Boolean(false)
+                Object('')                  => new String('')
+                Object(1)                   => new Number(1)
+
+                Object({username: "alex"})  => new Object({username: "alex"})
+                Object([1,2,3])             => new Array(1,2,3)
+
+                Object(undefined)    => {}
+                Object(null)         => {}
               </code>
             </pre>
           </div>

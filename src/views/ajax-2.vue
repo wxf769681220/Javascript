@@ -92,8 +92,10 @@
             </pre>
           </div>
           <p>默认情况下，服务器对POST提交和提交Web表单的请求并不会一视同仁。因此，服务端必须有程序来读取发送过来的原始数据，并从中解析出有用的部分。</p>
-          <p>我们可以通过使用XHR来模仿Web表单提交，首先将Content-Type头部信息设置为application/x-www-form-urlencoded，也就是表单提交时的内容类型。
-            另外以适当的格式创建一个字符串（使用serialize()函数序列化表单），作为请求的主体发送到服务器。</p>
+          <p>
+            我们可以通过使用XHR来模仿Web表单提交，首先将Content-Type头部信息设置为application/x-www-form-urlencoded，也就是表单提交时的内容类型。
+            另外以适当的格式创建一个字符串（使用serialize()函数序列化表单），作为请求的主体发送到服务器。
+          </p>
           <div v-highlight>
             <pre>
               <code>
@@ -101,6 +103,33 @@
                 xhr.setRequestHead("Content-Type", "application/x-www-form-urlencoded")
                 var form = document.forms['myForm']
                 xhr.send(serialize(form))
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:700px">
+        <h3 slot="title">4.Get与POST请求的区别</h3>
+        <div>
+          <div v-highlight>
+            <pre>
+              <code>
+                //安全方面：
+                //GET请求将查询字符串追加到url末尾，在浏览器地址栏可见。
+                //POST请求将数据做请求主体发送给服务器。（不可见）
+
+                //编码问题：
+                //GET请求的查询字符串中参数的名称和值必须使用encodeURIComponent()进行编码
+                //POST请求数据可以使用多种编码方式
+
+                //数据大小
+                //GET请求在URL中传送的查询字符串的长度限制的，而POST没有
+
+                //缓存问题：
+                //GET请求会被浏览器主动cache，而POST不会，除非手动设置
+
+                //浏览器行为上：
+                //GET请求在浏览器回退时是无害的，而POST可能会存在再次发送请求的情况
               </code>
             </pre>
           </div>

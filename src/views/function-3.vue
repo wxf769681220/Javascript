@@ -43,7 +43,7 @@
       </Card>
       <Card :dis-hover="true" shadow style="width:450px">
         <h3 slot="title">3.闭包的作用域链</h3>
-        <p>作用域链是函数定义时创建的，嵌套函数（闭包）就定义在这个作用域链里。对于外部函数的局部变量而言，不管在何时执行闭包函数，这种绑定在执行闭包时依然有效。</p>
+        <p>作用域链是函数定义时创建的，嵌套函数（闭包）就定义在这个作用域链里。对于外部函数的局部变量而言，不管在何时调用闭包函数，这种绑定在代用闭包时依然有效。</p>
         <div v-highlight>
           <pre>
               <code>
@@ -68,7 +68,12 @@
                   return foo
                 }
 
-                fn()() => 2
+                //获取闭包的引用
+                var y = fn()
+
+                //调用闭包
+                //依然可以获取闭包外部环境中的变量x
+                y() => 2
               </code>
             </pre>
         </div>
@@ -144,6 +149,7 @@
                 function fn() {
                   var arr = []
                   for (var i = 0; i &lt; 10; i++) {
+                    //自执行函数传入参数
                     arr[i] = function(a) {
                       return function() {
                         return a
@@ -155,32 +161,6 @@
 
                 fn()[0]() => 0
                 fn()[0]() => 9
-              </code>
-            </pre>
-        </div>
-        <p>一般函数在取得全局加变量时，也是获取任何变量的最终值。</p>
-        <div v-highlight>
-          <pre>
-              <code>
-                  var arr= []
-                  var i = 0
-                  for (; i &lt; 10; i++) {
-                    arr[i] = function() {
-                      return i //只能取得全局变量i的最终值10
-                    }
-                  }
-                  arr[0]() => 10
-                  arr[9]() => 10
-
-                  /****************/
-                  var arr= []
-                  var i = 0
-                  for (; i &lt; 10; i++) {
-                    arr[i] = function() { //自执行函数
-                      return i
-                    }()
-                  }
-                  arr => [0,1,2,3,4,5,6,7,8,9]
               </code>
             </pre>
         </div>

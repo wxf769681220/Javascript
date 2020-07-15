@@ -4,7 +4,7 @@
       <Card dis-hover shadow style="width:540px">
         <h3 slot="title">1.对象序列化</h3>
         <div>
-          <p>ECMAScript5提供了内置函数JSON.stringify()和JOIN.parse()用来序列化和还原javascript对象，这些方法都使用JSON作为数据交换格式。</p>
+          <p>ECMAScript5提供了内置函数JSON.stringify()和JSON.parse()用来序列化和还原javascript对象，这些方法都使用JSON作为数据交换格式。</p>
           <div v-highlight>
             <pre>
               <code>
@@ -16,7 +16,7 @@
 
                 //字符串转对象
                 var p = JSON.parse(s)
-                p => {x:1, y:2, z:3} //p是o的深拷贝
+                p => {x:1, y:2, z:3}
               </code>
             </pre>
           </div>

@@ -32,28 +32,6 @@
               </code>
             </pre>
           </div>
-          <p>使用超时调用来实现间歇调用。(间歇调用并不常用，原因是后一个间歇调用可能会在前一个间歇调用结束之前启动，超时调用可以避免这一点。)</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                //计时器
-                var num = 0
-                var max = 10
-
-                function fn() {
-                  num++
-                  if (num &lt; max) {
-                    setTimeout(fn, 1000)
-                  } else {
-                    alert('Done')
-                  }
-                  console.log(num)
-                }
-
-                setTimeout(fn, 1000)
-              </code>
-            </pre>
-          </div>
         </div>
       </Card>
       <Card dis-hover shadow style="width:600px">
@@ -111,7 +89,34 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:600px">
-        <h3 slot="title">3.定时器应用函数</h3>
+        <h3 slot="title">3.使用超时调用来实现间歇调用</h3>
+        <div>
+          <p>间歇调用并不常用，原因是后一个间歇调用可能会在前一个间歇调用结束之前启动，超时调用可以避免这一点。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                //计时器
+                var num = 0
+                var max = 10
+
+                function fn() {
+                  num++
+                  if (num &lt; max) {
+                    setTimeout(fn, 1000)
+                  } else {
+                    alert('Done')
+                  }
+                  console.log(num)
+                }
+
+                setTimeout(fn, 1000)
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:600px">
+        <h3 slot="title">4.定时器应用函数</h3>
         <div>
           <p></p>
           <div v-highlight>

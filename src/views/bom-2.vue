@@ -73,8 +73,41 @@
           </table>
         </div>
       </Card>
+      <Card dis-hover shadow style="width:750px">
+        <h3 slot="title">2.URI编码方法</h3>
+        <div>
+          <p>使用encodeURI和encodeURIComponent()方法可以对URI(通用资源标识符)进行编码。有效的URI中不能包含某些字符，如空格。这两个方法
+            就可以对URI进行编码，他们使用特殊的utf-8编码替代无效的字符，从来让浏览器能够接受和理解。
+          </p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var uri = 'https://www.baidu.com/pag e1#start'
+
+                //对整个URI进行编码，
+                //并且不会对本身属于URI的特殊字符进行编码，如：冒号、正斜杠、问号和井字号
+                encodeURI(uri) => https://www.baidu.com/pag%20e1#start
+
+                //对URI中的某一片段进行编码，
+                //会对URI任何非标准字符进行编码
+                encodeURIComponent(uri) => https%3A%2F%2Fwww.baidu.com%2Fpag%20e1%23start
+              </code>
+            </pre>
+          </div>
+          <p>encodeURI()和encodeURIComponent()相应的两个解码方法分别是：decodeURI()和decodeURIComponent()。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                decodeURI('https://www.baidu.com/pag%20e1#start')
+
+                decodeURIComponent('https%3A%2F%2Fwww.baidu.com%2Fpag%20e1%23start')
+              </code>
+            </pre>
+          </div>
+        </div>
+      </Card>
       <Card dis-hover shadow style="width:720px">
-        <h3 slot="title">2.查询字符串参数</h3>
+        <h3 slot="title">3.查询字符串参数</h3>
         <div>
           <p>访问URL包含的查询字符串的属性。</p>
           <div v-highlight>
@@ -113,7 +146,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:720px">
-        <h3 slot="title">3.URL跳转</h3>
+        <h3 slot="title">4.URL跳转</h3>
         <div>
           <p>使用assign()方法，跳转到指定的URL，并在浏览器历史记录中生成一条记录。</p>
           <div v-highlight>
@@ -138,7 +171,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:600px">
-        <h3 slot="title">4.URL重载</h3>
+        <h3 slot="title">5.URL重载</h3>
         <div>
           <p>通过修改设置URL的hostname、pathname、port、search、hansh属性，可以改变URL，从来改变当前加载的页面。页面会以新的URL重新加载（除了hash）。</p>
           <div v-highlight>
@@ -167,7 +200,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:600px">
-        <h3 slot="title">5.历史记录</h3>
+        <h3 slot="title">6.历史记录</h3>
         <div>
           <p>通过修改设置URL的hostname、pathname、port、search、hansh属性重载页面时，以上方式都会在浏览器历史记录中产生一条记录。要禁用这种行为，
             可以使用replace()方法，导航到指定URL，不会产生历史记录，用户不能回到前一个页面。</p>
@@ -182,7 +215,7 @@
         </div>
       </Card>
       <Card dis-hover shadow style="width:620px">
-        <h3 slot="title">6.hashchange事件</h3>
+        <h3 slot="title">7.hashchange事件</h3>
         <div>
           <p>
             户每次操作不一定会打开一个新的页面，因此"前进"和"后退"按钮就失去了作用，导致用户很难在不同的状态间切换。通过hashchange事件，

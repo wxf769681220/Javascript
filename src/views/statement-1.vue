@@ -95,8 +95,6 @@
             <pre>
               <code>
                 var x = 1;
-                var y, z;
-
                 delete x;
                 x => 1
               </code>
@@ -115,6 +113,17 @@
 
                 var x = fn;
                 x() => true
+              </code>
+            </pre>
+          </div>
+          <p>对同一变量多次声明，在不重新赋值的情况下，javascript对后续的声明视而不见。</p>
+          <div v-highlight>
+            <pre>
+              <code>
+                var x = 10;
+                var x;
+
+                x => 10
               </code>
             </pre>
           </div>

@@ -151,7 +151,7 @@
           <div v-highlight>
             <pre>
               <code>
-                var t = text
+                var t = "text"
                 t.charAt(0) => 't'
                 t[0]        => 't'
               </code>

@@ -23,7 +23,7 @@
         </Header>
         <Layout>
           <Sider hide-trigger :style="{background: '#fff'}">
-            <Menu active-name="statement-1" theme="light" accordion="true" width="240px">
+            <Menu active-name="statement-1" theme="light" accordion width="240px">
               <Submenu name="dataType">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>数据类型
@@ -62,7 +62,7 @@
                 <MenuItem name="object-1" to="/object-1">对象及属性</MenuItem>
                 <MenuItem name="object-2" to="/object-2">面向对象的设计模式</MenuItem>
                 <MenuItem name="object-3" to="/object-3">序列化对象</MenuItem>
-                <MenuItem name="object-4" to="/object-4">代理对象</MenuItem>
+                <MenuItem name="object-4" to="/object-4">代理对象(Proxy)</MenuItem>
               </Submenu>
               <Submenu name="array">
                 <template slot="title">
@@ -83,14 +83,9 @@
                 <MenuItem name="function-4" to="/function-4">原型对象</MenuItem>
                 <MenuItem name="function-5" to="/function-5">继承</MenuItem>
                 <MenuItem name="function-6" to="/function-6">继承扩展</MenuItem>
-                <MenuItem name="function-7" to="/function-7">模块模式</MenuItem>
+                <MenuItem name="function-7" to="/function-7">函数模块设计模式</MenuItem>
                 <MenuItem name="function-8" to="/function-8">函数相关方法</MenuItem>
-              </Submenu>
-              <Submenu name="high-function">
-                <template slot="title">
-                  <Icon type="ios-analytics"></Icon>高级函数
-                </template>
-                <MenuItem name="high-function-1" to="/high-function-1">1.高级函数</MenuItem>
+                <MenuItem name="function-9" to="/function-9">高级函数</MenuItem>
               </Submenu>
               <Submenu name="bom">
                 <template slot="title">
@@ -148,8 +143,9 @@
                 <MenuItem name="ajax-1" to="/ajax-1">1.XMLHttpRequest对象</MenuItem>
                 <MenuItem name="ajax-2" to="/ajax-2">2.HTTP请求</MenuItem>
                 <MenuItem name="ajax-3" to="/ajax-3">3.XMLHttpRequest2级</MenuItem>
-                <MenuItem name="ajax-4" to="/ajax-4">4.跨域资源共享</MenuItem>
+                <MenuItem name="ajax-4" to="/ajax-4">4.跨域资源共享CORS</MenuItem>
                 <MenuItem name="ajax-5" to="/ajax-5">5.其他跨域技术</MenuItem>
+                <MenuItem name="ajax-6" to="/ajax-6">6.跨站脚本XSS</MenuItem>
               </Submenu>
               <Submenu name="offline">
                 <template slot="title">
@@ -171,6 +167,7 @@
                   <Icon type="ios-analytics"></Icon>原生拖放
                 </template>
                 <MenuItem name="drag-1" to="/drag-1">1.拖放事件</MenuItem>
+                <MenuItem name="drag-2" to="/drag-2">2.拖动事件的应用</MenuItem>
               </Submenu>
               <Submenu name="media">
                 <template slot="title">
@@ -184,6 +181,7 @@
                   <Icon type="ios-analytics"></Icon>定时器
                 </template>
                 <MenuItem name="timer-1" to="/timer-1">超时和间歇调用</MenuItem>
+                <MenuItem name="timer-2" to="/timer-2">高级定时器</MenuItem>
               </Submenu>
               <Submenu name="api">
                 <template slot="title">
@@ -202,9 +200,11 @@
                 </template>
                 <MenuItem name="client-1" to="/client-1">客户端检测</MenuItem>
                 <MenuItem name="client-2" to="/client-2">错误处理与调试</MenuItem>
-                <MenuItem name="client-3" to="/client-3">严格模式</MenuItem>
+                <MenuItem name="client-3" to="/client-3">浏览器渲染与缓存</MenuItem>
+                <MenuItem name="client-4" to="/client-4">浏览器适配与兼容</MenuItem>
+                <MenuItem name="client-5" to="/client-5">HTTP2.0</MenuItem>
               </Submenu>
-               <Submenu name="practice">
+              <Submenu name="practice">
                 <template slot="title">
                   <Icon type="ios-analytics"></Icon>最佳实践
                 </template>

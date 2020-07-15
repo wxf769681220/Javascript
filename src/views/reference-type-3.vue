@@ -79,12 +79,18 @@
               <code>
                 var x = 'hello world'
 
+                //字符串第一个字符
                 x.charAt(0) => 'h'
-                x[0] => 'h' //浏览器支持
+                x[0] => 'h'
 
-                x.charCodeAt(0) => 104     //输出字符编码
-                x.fromCharCode(104) => 'h' //与charCodeAt()执行相反的操作
+                //字符串最后一个字符
+                x.charAt(x.length-1) => 'd'
 
+                //输出字符编码
+                x.charCodeAt(0) => 104
+
+                //与charCodeAt()执行相反的操作
+                x.fromCharCode(104) => 'h'
               </code>
             </pre>
           </div>
