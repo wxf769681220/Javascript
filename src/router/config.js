@@ -1,106 +1,112 @@
-const DataType1 = () => import('views/dataType-1')
-const DataType2 = () => import('views/dataType-2')
+const DataType1 = () => import('views/data-type/dataType-1')
+const DataType2 = () => import('views/data-type/dataType-2')
+const DataType3 = () => import('views/data-type/dataType-3')
 
-const Operator1 = () => import('views/operator-1')
-const Operator2 = () => import('views/operator-2')
+const Operator1 = () => import('views/operator/operator-1')
+const Operator2 = () => import('views/operator/operator-2')
+const Operator3 = () => import('views/operator/operator-3')
 
-const Statement1 = () => import('views/statement-1')
-const Statement2 = () => import('views/statement-2')
-const Statement3 = () => import('views/statement-3')
+const Statement1 = () => import('views/statement/statement-1')
+const Statement2 = () => import('views/statement/statement-2')
+const Statement3 = () => import('views/statement/statement-3')
 
-const ReferenceType1 = () => import('views/reference-type-1')
-const ReferenceType2 = () => import('views/reference-type-2')
-const ReferenceType3 = () => import('views/reference-type-3')
-const ReferenceType4 = () => import('views/reference-type-4')
+const ReferenceType1 = () => import('views/reference-type/reference-type-1')
+const ReferenceType2 = () => import('views/reference-type/reference-type-2')
+const ReferenceType3 = () => import('views/reference-type/reference-type-3')
+const ReferenceType4 = () => import('views/reference-type/reference-type-4')
 
-const Object1 = () => import('views/object-1')
-const Object2 = () => import('views/object-2')
-const Object3 = () => import('views/object-3')
-const Object4 = () => import('views/object-4')
+const Object1 = () => import('views/object/object-1')
+const Object2 = () => import('views/object/object-2')
+const Object3 = () => import('views/object/object-3')
+const Object4 = () => import('views/object/object-4')
 
-const Array1 = () => import('views/array-1')
-const Array2 = () => import('views/array-2')
-const Array3 = () => import('views/array-3')
-const Array4 = () => import('views/array-4')
+const Array1 = () => import('views/array/array-1')
+const Array2 = () => import('views/array/array-2')
+const Array3 = () => import('views/array/array-3')
+const Array4 = () => import('views/array/array-4')
 
-const Function1 = () => import('views/function-1')
-const Function2 = () => import('views/function-2')
-const Function3 = () => import('views/function-3')
-const Function4 = () => import('views/function-4')
-const Function5 = () => import('views/function-5')
-const Function6 = () => import('views/function-6')
-const Function7 = () => import('views/function-7')
-const Function8 = () => import('views/function-8')
-const Function9 = () => import('views/function-9')
+const Function1 = () => import('views/function/function-1')
+const Function2 = () => import('views/function/function-2')
+const Function3 = () => import('views/function/function-3')
+const Function4 = () => import('views/function/function-4')
+const Function5 = () => import('views/function/function-5')
+const Function6 = () => import('views/function/function-6')
 
-const Bom1 = () => import('views/bom-1')
-const Bom2 = () => import('views/bom-2')
-const Bom3 = () => import('views/bom-3')
-const Bom4 = () => import('views/bom-4')
-const Bom5 = () => import('views/bom-5')
+const FunctionHight1 = () => import('views/function-hight/function-hight-1')
+const FunctionHight2 = () => import('views/function-hight/function-hight-2')
+const FunctionHight3 = () => import('views/function-hight/function-hight-3')
 
-const Dom1 = () => import('views/dom-1')
-const Dom2 = () => import('views/dom-2')
-const Dom3 = () => import('views/dom-3')
-const Dom4 = () => import('views/dom-4')
-const Dom5 = () => import('views/dom-5')
-const Dom6 = () => import('views/dom-6')
-const Dom7 = () => import('views/dom-7')
-const Dom8 = () => import('views/dom-8')
+const Bom1 = () => import('views/bom/bom-1')
+const Bom2 = () => import('views/bom/bom-2')
+const Bom3 = () => import('views/bom/bom-3')
+const Bom4 = () => import('views/bom/bom-4')
+const Bom5 = () => import('views/bom/bom-5')
 
-const DomEvent1 = () => import('views/dom-event-1')
-const DomEvent2 = () => import('views/dom-event-2')
-const DomEvent3 = () => import('views/dom-event-3')
-const DomEvent4 = () => import('views/dom-event-4')
-const DomEvent5 = () => import('views/dom-event-5')
-const DomEvent6 = () => import('views/dom-event-6')
+const Dom1 = () => import('views/dom/dom-1')
+const Dom2 = () => import('views/dom/dom-2')
+const Dom3 = () => import('views/dom/dom-3')
+const Dom4 = () => import('views/dom/dom-4')
+const Dom5 = () => import('views/dom/dom-5')
+const Dom6 = () => import('views/dom/dom-6')
+const Dom7 = () => import('views/dom/dom-7')
+const Dom8 = () => import('views/dom/dom-8')
 
-const Form1 = () => import('views/form-1')
-const Form2 = () => import('views/form-2')
-const Form3 = () => import('views/form-3')
-const Form4 = () => import('views/form-4')
+const DomEvent1 = () => import('views/dom-event/dom-event-1')
+const DomEvent2 = () => import('views/dom-event/dom-event-2')
+const DomEvent3 = () => import('views/dom-event/dom-event-3')
+const DomEvent4 = () => import('views/dom-event/dom-event-4')
 
-const Json1 = () => import('views/json-1')
+const DomEventType1 = () => import('views/dom-event-type/dom-event-type-1')
+const DomEventType2 = () => import('views/dom-event-type/dom-event-type-2')
+const DomEventType3 = () => import('views/dom-event-type/dom-event-type-3')
+const DomEventType4 = () => import('views/dom-event-type/dom-event-type-4')
+const DomEventType5 = () => import('views/dom-event-type/dom-event-type-5')
+const DomEventType6 = () => import('views/dom-event-type/dom-event-type-6')
+const DomEventType7 = () => import('views/dom-event-type/dom-event-type-7')
 
-const Ajax1 = () => import('views/ajax-1')
-const Ajax2 = () => import('views/ajax-2')
-const Ajax3 = () => import('views/ajax-3')
-const Ajax4 = () => import('views/ajax-4')
-const Ajax5 = () => import('views/ajax-5')
-const Ajax6 = () => import('views/ajax-6')
+const Form1 = () => import('views/form/form-1')
+const Form2 = () => import('views/form/form-2')
+const Form3 = () => import('views/form/form-3')
+const Form4 = () => import('views/form/form-4')
 
-const OfflineApp1 = () => import('views/offline-app-1')
-const OfflineApp2 = () => import('views/offline-app-2')
-const OfflineApp3 = () => import('views/offline-app-3')
+const Json1 = () => import('views/json/json-1')
 
-const Canvas1 = () => import('views/canvas-1')
-const Canvas2 = () => import('views/canvas-2')
+const Ajax1 = () => import('views/ajax/ajax-1')
+const Ajax2 = () => import('views/ajax/ajax-2')
+const Ajax3 = () => import('views/ajax/ajax-3')
+const Ajax4 = () => import('views/ajax/ajax-4')
+const Ajax5 = () => import('views/ajax/ajax-5')
+const Ajax6 = () => import('views/ajax/ajax-6')
 
-const Drag1 = () => import('views/drag-1')
-const Drag2 = () => import('views/drag-2')
+const Storage1 = () => import('views/storage/storage-1')
+const Storage2 = () => import('views/storage/storage-2')
 
-const Media1 = () => import('views/media-1')
-const Media2 = () => import('views/media-2')
+const OfflineApp1 = () => import('views/offline-app/offline-app-1')
 
-const Timer1 = () => import('views/timer-1')
-const Timer2 = () => import('views/timer-2')
+const Network1 = () => import('views/network/network-1')
+const Network2 = () => import('views/network/network-2')
 
-const Api1 = () => import('views/api-1')
-const Api2 = () => import('views/api-2')
-const Api3 = () => import('views/api-3')
-const Api4 = () => import('views/api-4')
-const Api5 = () => import('views/api-5')
-const Api6 = () => import('views/api-6')
+const Timer1 = () => import('views/timer/timer-1')
+const Timer2 = () => import('views/timer/timer-2')
 
-const Client1 = () => import('views/client-1')
-const Client2 = () => import('views/client-2')
-const Client3 = () => import('views/client-3')
-const Client4 = () => import('views/client-4')
-const Client5 = () => import('views/client-5')
+const Api1 = () => import('views/api/api-1')
+const Api2 = () => import('views/api/api-2')
+const Api3 = () => import('views/api/api-3')
+const Api4 = () => import('views/api/api-4')
+const Api5 = () => import('views/api/api-5')
+const Api6 = () => import('views/api/api-6')
 
-const Practice1 = () => import('views/practice-1')
-const Practice2 = () => import('views/practice-2')
-const Practice3 = () => import('views/practice-3')
+const Page1 = () => import('views/page/page-1')
+const WebWorks1 = () => import('views/web-works/web-works-1')
+
+const Client1 = () => import('views/client/client-1')
+const Client2 = () => import('views/client/client-2')
+const Client3 = () => import('views/client/client-3')
+const Client4 = () => import('views/client/client-4')
+
+const Best1 = () => import('views/best/best-1')
+const Best2 = () => import('views/best/best-2')
+const Best3 = () => import('views/best/best-3')
 
 const Supplement1 = () => import('views/supplement-1')
 
@@ -114,12 +120,20 @@ const routes = [
     component: DataType2
   },
   {
+    path: '/dataType-3',
+    component: DataType3
+  },
+  {
     path: '/operator-1',
     component: Operator1
   },
   {
     path: '/operator-2',
     component: Operator2
+  },
+  {
+    path: '/operator-3',
+    component: Operator3
   },
   {
     path: '/statement-1',
@@ -206,16 +220,16 @@ const routes = [
     component: Function6
   },
   {
-    path: '/function-7',
-    component: Function7
+    path: '/function-hight-1',
+    component: FunctionHight1
   },
   {
-    path: '/function-8',
-    component: Function8
+    path: '/function-hight-2',
+    component: FunctionHight2
   },
   {
-    path: '/function-9',
-    component: Function9
+    path: '/function-hight-3',
+    component: FunctionHight3
   },
   {
     path: '/bom-1',
@@ -286,12 +300,32 @@ const routes = [
     component: DomEvent4
   },
   {
-    path: '/dom-event-5',
-    component: DomEvent5
+    path: '/dom-event-type-1',
+    component: DomEventType1
   },
   {
-    path: '/dom-event-6',
-    component: DomEvent6
+    path: '/dom-event-type-2',
+    component: DomEventType2
+  },
+  {
+    path: '/dom-event-type-3',
+    component: DomEventType3
+  },
+  {
+    path: '/dom-event-type-4',
+    component: DomEventType4
+  },
+  {
+    path: '/dom-event-type-5',
+    component: DomEventType5
+  },
+  {
+    path: '/dom-event-type-6',
+    component: DomEventType6
+  },
+  {
+    path: '/dom-event-type-7',
+    component: DomEventType7
   },
   {
     path: '/form-1',
@@ -338,40 +372,32 @@ const routes = [
     component: Ajax6
   },
   {
+    path: '/page-1',
+    component: Page1
+  },
+  {
+    path: '/web-works-1',
+    component: WebWorks1
+  },
+  {
     path: '/offline-app-1',
     component: OfflineApp1
   },
   {
-    path: '/offline-app-2',
-    component: OfflineApp2
+    path: '/network-1',
+    component: Network1
   },
   {
-    path: '/offline-app-3',
-    component: OfflineApp3
+    path: '/network-2',
+    component: Network2
   },
   {
-    path: '/canvas-1',
-    component: Canvas1
+    path: '/storage-1',
+    component: Storage1
   },
   {
-    path: '/canvas-2',
-    component: Canvas2
-  },
-  {
-    path: '/drag-1',
-    component: Drag1
-  },
-  {
-    path: '/drag-2',
-    component: Drag2
-  },
-  {
-    path: '/media-1',
-    component: Media1
-  },
-  {
-    path: '/media-2',
-    component: Media2
+    path: '/storage-2',
+    component: Storage2
   },
   {
     path: '/timer-1',
@@ -422,20 +448,16 @@ const routes = [
     component: Client4
   },
   {
-    path: '/client-5',
-    component: Client5
+    path: '/best-1',
+    component: Best1
   },
   {
-    path: '/practice-1',
-    component: Practice1
+    path: '/best-2',
+    component: Best2
   },
   {
-    path: '/practice-2',
-    component: Practice2
-  },
-  {
-    path: '/practice-3',
-    component: Practice3
+    path: '/best-3',
+    component: Best3
   },
   {
     path: '/supplement-1',

@@ -1,100 +1,6 @@
 <template>
   <div class="supplement-1">
     <div class="layout-content">
-      <Card dis-hover shadow style="width:520px">
-        <h3 slot="title">&lt;script>元素的属性</h3>
-        <div>
-          <p>defer属性规定是否对脚本执行进行延迟，直到页面加载为止。</p>
-          <p>async属性规定一旦脚本可用，则会异步执行。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                &lt;script src="example.js" defer="defer">&lt;/script>
-                &lt;script src="example.js" async="async">&lt;/script>
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
-      <Card dis-hover shadow style="width:550px">
-        <h3 slot="title">javascript数值范围</h3>
-        <div>
-          <p>MIN_VALUE属性是JavaScript中可表示的最小的数（接近0 ，但不是负数）。它的近似值为 5 x 10<sup>-324</sup>。</p>
-          <p>MAX_VALUE属性是JavaScript中可表示的最大的数。它的近似值为 1.7976931348623157 x 10<sup>308</sup>。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                console.log(Number.MIN_VALUE)
-                console.log(Number.MAX_VALUE)
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
-      <Card :dis-hover="true" shadow style="width:450px">
-        <h3 slot="title">javascript保存数值范围</h3>
-        <div>
-          <p>如果当前语句和随后的非空格字符不能当做一个整体来解析的话，javascript就在当前语句行结束处填补分号。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                var a
-                a
-                =
-                10
-                console.log(a)
-
-                //解析
-                var a; a = 10; console.log(a);
-              </code>
-            </pre>
-          </div>
-          <p>语句分隔，省略分号会导致一些意想不到的情形。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                var x = 1
-
-                (function(){
-                  //...
-                }())
-
-                //解析
-                var x = 1(function(){
-                  //...
-                }())
-              </code>
-            </pre>
-          </div>
-          <p>在语句前添加一个分号，哪怕之前的语句被修改了，分号被误删了，当前语句还是会正确的解析。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                var x = 1
-
-                //以下代码可正常执行
-                ;(function(){
-                  //...
-                }())
-              </code>
-            </pre>
-          </div>
-          <p>像"++"，"--"运算符，可作为表达式的前缀或后缀。若用于后缀，它应当与表达式同行。否则行尾将自动填补分号，"++"或"--"，将会被作为下一行代码的前缀使用。</p>
-          <div v-highlight>
-            <pre>
-              <code>
-                x
-                ++
-                y
-
-                //解析
-                x;
-                ++y;
-              </code>
-            </pre>
-          </div>
-        </div>
-      </Card>
       <Card :dis-hover="true" shadow style="width:650px">
         <h3 slot="title">常量和局部变量</h3>
         <div>
@@ -192,6 +98,40 @@
                 c => 3
               </code>
             </pre>
+          </div>
+        </div>
+      </Card>
+      <Card dis-hover shadow style="width:550px">
+        <h3 slot="title">2.eval()方法</h3>
+        <div>
+          <p>eval()方法就像一个完整的javascript解析器，它接收一个参数，即要执行的代码字符串。</p>
+          <div v-highlight>
+            <pre>
+            <code>
+              eval("alert('hello!')")
+
+              //等价于
+              alert("hello!")
+            </code>
+          </pre>
+          </div>
+          <p>eval()执行的代码被认为是包含该次调用的执行代码的一部分，因此被执行的代码具有与该执行环境相同的作用域链。</p>
+          <div v-highlight>
+            <pre>
+            <code>
+              var x = 1
+
+              eval("alert(x + 1)") => 2
+
+              eval("function fn() {return x + 1}")
+
+              fn() => 2
+
+              //严格模式下，外部无法访问eval()中创建的任何变量或函数
+              'user strict'
+              fn() => error
+            </code>
+          </pre>
           </div>
         </div>
       </Card>

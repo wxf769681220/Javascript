@@ -28,15 +28,17 @@
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>数据类型
                 </template>
-                <MenuItem name="dataType-1" to="/dataType-1">数据类型转换</MenuItem>
-                <MenuItem name="dataType-2" to="/dataType-2">数据类型检测</MenuItem>
+                <MenuItem name="dataType-1" to="/dataType-1">隐式转换</MenuItem>
+                <MenuItem name="dataType-2" to="/dataType-2">显式转换</MenuItem>
+                <MenuItem name="dataType-3" to="/dataType-3">数据类型检测</MenuItem>
               </Submenu>
               <Submenu name="operator">
                 <template slot="title">
                   <Icon type="ios-navigate"></Icon>运算符
                 </template>
                 <MenuItem name="operator-1" to="/operator-1">常用运算符</MenuItem>
-                <MenuItem name="operator-2" to="/operator-2">优先级</MenuItem>
+                <MenuItem name="operator-2" to="/operator-2">运算符扩展</MenuItem>
+                <MenuItem name="operator-3" to="/operator-3">优先级</MenuItem>
               </Submenu>
               <Submenu name="statement">
                 <template slot="title">
@@ -79,13 +81,18 @@
                 </template>
                 <MenuItem name="function-1" to="/function-1">函数概述</MenuItem>
                 <MenuItem name="function-2" to="/function-2">函数参数</MenuItem>
-                <MenuItem name="function-3" to="/function-3">闭包</MenuItem>
+                <MenuItem name="function-3" to="/function-3">执行环境、作用域链、闭包</MenuItem>
                 <MenuItem name="function-4" to="/function-4">原型对象</MenuItem>
                 <MenuItem name="function-5" to="/function-5">继承</MenuItem>
                 <MenuItem name="function-6" to="/function-6">继承扩展</MenuItem>
-                <MenuItem name="function-7" to="/function-7">函数模块设计模式</MenuItem>
-                <MenuItem name="function-8" to="/function-8">函数相关方法</MenuItem>
-                <MenuItem name="function-9" to="/function-9">高级函数</MenuItem>
+              </Submenu>
+              <Submenu name="function-hight">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>高级函数
+                </template>
+                <MenuItem name="function-hight-1" to="/function-hight-1">函数模块设计模式</MenuItem>
+                <MenuItem name="function-hight-2" to="/function-hight-2">高级函数</MenuItem>
+                <MenuItem name="function-hight-3" to="/function-hight-3">函数相关方法</MenuItem>
               </Submenu>
               <Submenu name="bom">
                 <template slot="title">
@@ -116,10 +123,26 @@
                 </template>
                 <MenuItem name="dom-event-1" to="/dom-event-1">1.事件处理程序</MenuItem>
                 <MenuItem name="dom-event-2" to="/dom-event-2">2.事件对象</MenuItem>
-                <MenuItem name="dom-event-3" to="/dom-event-3">3.事件类型</MenuItem>
-                <MenuItem name="dom-event-4" to="/dom-event-4">4.设备相关事件</MenuItem>
-                <MenuItem name="dom-event-5" to="/dom-event-5">5.模拟事件</MenuItem>
-                <MenuItem name="dom-event-6" to="/dom-event-6">6.事件委托</MenuItem>
+                <MenuItem name="dom-event-5" to="/dom-event-3">3.模拟事件</MenuItem>
+                <MenuItem name="dom-event-6" to="/dom-event-4">4.事件委托</MenuItem>
+              </Submenu>
+
+              <Submenu name="dom-event-type">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>DOM-事件集
+                </template>
+                <MenuItem name="dom-event-type-1" to="/dom-event-type-1">1.window 相关事件</MenuItem>
+                <MenuItem name="dom-event-type-2" to="/dom-event-type-2">2.焦点事件</MenuItem>
+                <MenuItem name="dom-event-type-3" to="/dom-event-type-3">3.鼠标与滚轮事件</MenuItem>
+                <MenuItem name="dom-event-type-4" to="/dom-event-type-4">4.键盘与文本事件</MenuItem>
+                <MenuItem name="dom-event-type-5" to="/dom-event-type-5">5.HTML DOM变动事件</MenuItem>
+                <MenuItem name="dom-event-type-6" to="/dom-event-type-6">6.设备相关事件</MenuItem>
+                <MenuItem name="dom-event-type-7" to="/dom-event-type-7">7.剪贴板事件</MenuItem>
+              </Submenu>
+              <Submenu name="canvas">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>Canvas绘图
+                </template>
               </Submenu>
               <Submenu name="form">
                 <template slot="title">
@@ -141,40 +164,23 @@
                   <Icon type="ios-analytics"></Icon>Ajax
                 </template>
                 <MenuItem name="ajax-1" to="/ajax-1">1.XMLHttpRequest对象</MenuItem>
-                <MenuItem name="ajax-2" to="/ajax-2">2.HTTP请求</MenuItem>
-                <MenuItem name="ajax-3" to="/ajax-3">3.XMLHttpRequest2级</MenuItem>
+                <MenuItem name="ajax-2" to="/ajax-2">2.XMLHttpRequest2级</MenuItem>
+                <MenuItem name="ajax-3" to="/ajax-3">3.HTTP请求</MenuItem>
                 <MenuItem name="ajax-4" to="/ajax-4">4.跨域资源共享CORS</MenuItem>
                 <MenuItem name="ajax-5" to="/ajax-5">5.其他跨域技术</MenuItem>
                 <MenuItem name="ajax-6" to="/ajax-6">6.跨站脚本XSS</MenuItem>
               </Submenu>
-              <Submenu name="offline">
+              <Submenu name="web-works">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>离线应用与客户端存储
+                  <Icon type="ios-analytics"></Icon>Web Works
                 </template>
-                <MenuItem name="offline-1" to="/offline-app-1">1.离线应用</MenuItem>
-                <MenuItem name="offline-2" to="/offline-app-2">2.Cookie</MenuItem>
-                <MenuItem name="offline-3" to="/offline-app-3">3.Storage</MenuItem>
+                <MenuItem name="web-works-1" to="/web-works-1">基础用法</MenuItem>
               </Submenu>
-              <Submenu name="canvas">
+              <Submenu name="page">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>Canvas绘图
+                  <Icon type="ios-analytics"></Icon>Page visibility
                 </template>
-                <MenuItem name="canvas-1" to="/canvas-1">1.canvas</MenuItem>
-                <MenuItem name="canvas-2" to="/canvas-2">2.111</MenuItem>
-              </Submenu>
-              <Submenu name="drag">
-                <template slot="title">
-                  <Icon type="ios-analytics"></Icon>原生拖放
-                </template>
-                <MenuItem name="drag-1" to="/drag-1">1.拖放事件</MenuItem>
-                <MenuItem name="drag-2" to="/drag-2">2.拖动事件的应用</MenuItem>
-              </Submenu>
-              <Submenu name="media">
-                <template slot="title">
-                  <Icon type="ios-analytics"></Icon>媒体元素
-                </template>
-                <MenuItem name="media-1" to="/media-1">1.&lt;audio>和&lt;video></MenuItem>
-                <MenuItem name="media-2" to="/media-2">2.自定义媒体播放器</MenuItem>
+                <MenuItem name="page-1" to="/page-1">基础用法</MenuItem>
               </Submenu>
               <Submenu name="timer">
                 <template slot="title">
@@ -183,16 +189,36 @@
                 <MenuItem name="timer-1" to="/timer-1">超时和间歇调用</MenuItem>
                 <MenuItem name="timer-2" to="/timer-2">高级定时器</MenuItem>
               </Submenu>
+              <Submenu name="storage">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>客户端存储
+                </template>
+                <MenuItem name="storage-1" to="/storage-1">1.Cookie</MenuItem>
+                <MenuItem name="storage-2" to="/storage-2">2.Storage</MenuItem>
+              </Submenu>
+              <Submenu name="offline-app">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>离线应用
+                </template>
+                <MenuItem name="offline-app-1" to="/offline-app-1">1.基础用法</MenuItem>
+              </Submenu>
+              <Submenu name="network">
+                <template slot="title">
+                  <Icon type="ios-analytics"></Icon>网络通信
+                </template>
+                <MenuItem name="network-1" to="/network-1">1.HTTP2.0</MenuItem>
+                <MenuItem name="network-2" to="/network-2">2.SSL</MenuItem>
+              </Submenu>
               <Submenu name="api">
                 <template slot="title">
-                  <Icon type="ios-analytics"></Icon>新兴的API
+                  <Icon type="ios-analytics"></Icon>API
                 </template>
                 <MenuItem name="api-1" to="/api-1">动画循环</MenuItem>
                 <MenuItem name="api-2" to="/api-2">地理定位</MenuItem>
                 <MenuItem name="api-3" to="/api-3">本地文件读取与上传</MenuItem>
                 <MenuItem name="api-4" to="/api-4">Web计时</MenuItem>
-                <MenuItem name="api-5" to="/api-5">Web Works</MenuItem>
-                <MenuItem name="api-6" to="/api-6">页面可见性</MenuItem>
+                <MenuItem name="api-5" to="/api-5">原生拖放</MenuItem>
+                <MenuItem name="api-6" to="/api-6">媒体元素</MenuItem>
               </Submenu>
               <Submenu name="client">
                 <template slot="title">
@@ -202,15 +228,14 @@
                 <MenuItem name="client-2" to="/client-2">错误处理与调试</MenuItem>
                 <MenuItem name="client-3" to="/client-3">浏览器渲染与缓存</MenuItem>
                 <MenuItem name="client-4" to="/client-4">浏览器适配与兼容</MenuItem>
-                <MenuItem name="client-5" to="/client-5">HTTP2.0</MenuItem>
               </Submenu>
-              <Submenu name="practice">
+              <Submenu name="best">
                 <template slot="title">
                   <Icon type="ios-analytics"></Icon>最佳实践
                 </template>
-                <MenuItem name="practice-1" to="/practice-1">1.代码维护</MenuItem>
-                <MenuItem name="practice-2" to="/practice-2">2.性能提升</MenuItem>
-                <MenuItem name="practice-3" to="/practice-3">3.优化DOM交互</MenuItem>
+                <MenuItem name="best-1" to="/best-1">1.代码维护</MenuItem>
+                <MenuItem name="best-2" to="/best-2">2.性能提升</MenuItem>
+                <MenuItem name="best-3" to="/best-3">3.优化DOM交互</MenuItem>
               </Submenu>
               <Submenu name="supplement">
                 <template slot="title">
