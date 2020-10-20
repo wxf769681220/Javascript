@@ -1,9 +1,10 @@
 <template>
   <div class="test">
+    {{age}}
     <ul class="menu">
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
     </ul>
   </div>
 </template>
@@ -11,9 +12,21 @@
 <script>
 export default {
   name: 'test',
-  props: {},
+  inject: ['age'],
+  props: {
+    num: {
+      type: String,
+      default: ''
+    },
+    b: {
+      type: Number,
+      default: 0
+    }
+  },
   data() {
-    return {}
+    return {
+      count: 100
+    }
   },
   computed: {},
   watch: {},
